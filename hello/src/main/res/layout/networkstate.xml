@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#ffffff"
+    >
+
+    <EditText
+        android:id="@+id/mobileStateTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="手机连通性"
+        android:inputType="text"
+        android:background="@drawable/my_shape_1"/>
+
+    <EditText
+        android:id="@+id/wifiStateTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:maxLength="18"
+        android:hint="wifi连通性"
+        android:inputType="text"
+        android:background="@drawable/my_shape_2">
+    </EditText>
+
+    <EditText
+        android:id="@+id/signalIntensityTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="信号"
+        android:inputType="text"
+        android:background="@drawable/my_shape_3"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <Button
+            android:id="@+id/closeWifiBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="关闭wifi" />
+
+        <Button
+            android:id="@+id/openWifiBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="打开wifi" />
+
+        <Button
+            android:id="@+id/gotoWirelessSetBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="去设置" />
+
+        <Button
+            android:id="@+id/getNetWorkStateBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="获取" />
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/wireOtherInfoTxt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.22"
+        android:inputType="textMultiLine" >
+
+        <requestFocus />
+    </EditText>
+
+</LinearLayout>

@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_height="match_parent"
+              android:layout_width="match_parent"
+              android:orientation="vertical">
+
+    <FrameLayout
+        android:id="@+id/frameLayout1"
+        android:scrollbars="none"
+        android:layout_height="wrap_content"
+        android:layout_width="fill_parent">
+
+        <HorizontalScrollView
+            android:layout_width="fill_parent"
+            android:scrollbars="none"
+            android:fillViewport="true"
+            android:layout_height="wrap_content"
+            android:fadingEdge="none"
+            android:id="@+id/scroll_bar">
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                >
+
+                <RadioGroup
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/radioGroup"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <RadioButton
+                        android:id="@+id/radio1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="游戏1"
+                        style="@style/main_tab_bottom"/>
+
+                    <RadioButton
+                        android:id="@+id/radio2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="游戏2"
+                        style="@style/main_tab_bottom"/>
+
+                    <RadioButton
+                        android:id="@+id/radio3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="游戏3"
+                        style="@style/main_tab_bottom"/>
+
+                    <RadioButton
+                        android:id="@+id/radio4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="游戏4"
+                        style="@style/main_tab_bottom"/>
+
+                    <RadioButton
+                        android:id="@+id/radio5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="游戏5"
+                        style="@style/main_tab_bottom"/>
+
+                    <RadioButton
+                        android:id="@+id/radio6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="游戏6"
+                        style="@style/main_tab_bottom"/>
+
+                    <RadioButton
+                        android:id="@+id/radio7"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="游戏7"
+                        style="@style/main_tab_bottom"/>
+
+                    <RadioButton
+                        android:id="@+id/radio8"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="游戏8"
+                        style="@style/main_tab_bottom"/>
+
+                    <RadioButton
+                        android:id="@+id/radio9"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="游戏9"
+                        style="@style/main_tab_bottom"/>
+
+                </RadioGroup>
+
+            </LinearLayout>
+
+        </HorizontalScrollView>
+
+        <ImageView
+            android:id="@+id/arrowl"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:src="@drawable/arrowl"
+            android:layout_gravity="left|center_vertical"/>
+
+        <ImageView
+            android:layout_height="wrap_content"
+            android:layout_gravity="right|center_vertical"
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:src="@drawable/arrowr"
+            android:id="@+id/arrowr"/>
+
+
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:id="@+id/radio_scroll_content"/>
+</LinearLayout>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#00FF00"
+    >
+<TextView 
+    android:id="@+id/lblFragment1" 
+    android:layout_width="fill_parent" 
+    android:layout_height="wrap_content" 
+    android:text="This is fragment #1"
+    android:textColor="#000000" 
+    android:textSize="25sp" />
+
+    <EditText
+        android:id="@+id/fragment1_window_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="等待输入"/>
+
+    <Button
+    android:id="@+id/fragment1_openwindow_btn"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Dialog框"
+    />
+
+    <Button
+        android:id="@+id/fragment1_openwindow_btn2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="PopupWindow框"
+        />
+
+    <RadioGroup
+        android:id="@+id/fragment1_menu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <RadioButton
+            android:id="@+id/fragment1_menu_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="不死"
+            />
+        <RadioButton
+            android:id="@+id/fragment1_menu_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="暗夜"
+            android:ellipsize="marquee"
+            />
+        <RadioButton
+            android:id="@+id/fragment1_menu_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="人类"
+            />
+        <RadioButton
+            android:id="@+id/fragment1_menu_4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="兽族"
+            />
+        </RadioGroup>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/fragment1_layout"
+        android:background="#99ff00"></LinearLayout>
+</LinearLayout>

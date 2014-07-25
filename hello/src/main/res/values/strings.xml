@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Hello2</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="mywife">小猫咪</string>
+    <string name="mywifePhoneNumber">13439485670</string>
+    <string name="title_activity_fragment">FragmentActivity</string>
+    <string name="title_activity_mylayout">MylayoutActivity</string>
+    <string name="title_activity_widget1">Widget1Activity</string>
+    <string name="test4input">Widget1ActivityWi\ndget1ActivityWidget1</string>
+    <string name="test4input2">Widget1ActivityWidget1ActivityWidget1Widget1ActivityWidget1ActivityWidget1</string>
+    <string name="title_activity_sub_widget1">SubWidget1Activity</string>
+    <string name="title_activity_sub_widget2">SubWidget2Activity</string>
+    <string name="title_activity_sub_widget3">SubWidget3Activity</string>
+    <string name="title_activity_list_view1">ListView1</string>
+    <string name="title_activity_list_view2">ListView2</string>
+    <string name="title_activity_list_view3">ListView3</string>
+    <string name="title_activity_tab_host_demo">TabHostDemoActivity</string>
+    <string name="title_activity_internet1">Internet1Activity</string>
+    <string name="my_feed">http://192.168.1.132:8080/myweb/2.xml</string>
+    <string name="my_feed2">http://192.168.1.132:8080/myweb/icon_templates-v4.0.zip</string>
+    <string name="title_activity_annotation1">Annotation1Activity</string>
+    <string name="waiting_for_input">等待输入</string>
+    <string name="removeItem">Remove</string>
+    <string name="title_activity_rx">RXActivity</string>
+
+    <string-array name="type_selector">
+        <item>全部</item>
+        <item>充值</item>
+        <item>提款</item>
+        <item>转账</item>
+        <item>红利</item>
+    </string-array>
+
+    <string name="title_activity_sub_page_view">SubPageView</string>
+    <string name="title_activity_radio_scroll">RadioScrollActivity</string>
+
+</resources>

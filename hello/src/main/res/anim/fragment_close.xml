@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<rotate xmlns:android="http://schemas.android.com/apk/res/android"
+                android:fromDegrees="0"
+                android:toDegrees="180"
+                android:duration="750" />
+<!--
+<translate xmlns:android="http://schemas.android.com/apk/res/android"
+    android:duration="500"
+    android:fromXDelta="0"
+    android:toXDelta="-768"
+    />-->

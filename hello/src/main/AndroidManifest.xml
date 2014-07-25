@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.amar.hello2"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <meta-data
+        android:name="UMENG_CHANNEL"
+        android:value="UMENG_CHANNEL_VALUE" />
+
+    <uses-sdk
+        android:minSdkVersion="10"
+        android:targetSdkVersion="10" />
+
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <uses-library android:name="android.test.runner" />
+
+        <activity
+            android:name="ca.laplanete.mobile.example.MainActivity"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/app_name" >
+        </activity>
+        <activity-alias
+            android:name="A3"
+            android:icon="@drawable/ic_launcher"
+            android:label="@string/app_name"
+            android:targetActivity="${applicationId}.MainActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+
+        <activity
+            android:name=".SecondActivity"
+            android:label="@string/app_name"
+            android:theme="@android:style/Theme.Black.NoTitleBar" >
+        </activity>
+        <activity
+            android:name=".ThirdActivity"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.MyDialog" >
+        </activity>
+        <!-- android:theme="@android:style/Theme.Wallpaper" -->
+        <activity
+            android:name="wyf.zcl.DBActivity"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name=".NetWorkActivity"
+            android:label="@string/app_name"
+            android:theme="@android:style/Theme.Black.NoTitleBar" >
+        </activity>
+        <activity
+            android:name=".FragmentDemoActivity"
+            android:label="@string/title_activity_fragment" >
+        </activity>
+        <activity
+            android:name=".MyLayoutActivity"
+            android:label="@string/title_activity_mylayout" >
+        </activity>
+        <activity
+            android:name=".layout.MyTableActivity"
+            android:label="@string/title_activity_mylayout" >
+        </activity>
+        <activity
+            android:name=".layout.MyAbsActivity"
+            android:label="@string/title_activity_mylayout" >
+        </activity>
+        <activity
+            android:name=".layout.MyFrameActivity"
+            android:label="@string/title_activity_mylayout" >
+        </activity>
+        <activity
+            android:name=".layout.MyGridActivity"
+            android:label="@string/title_activity_mylayout" >
+        </activity>
+        <activity
+            android:name=".layout.MyLinearActivity"
+            android:label="@string/title_activity_mylayout" >
+        </activity>
+        <activity
+            android:name=".layout.MyRelatActivity"
+            android:label="@string/title_activity_mylayout" >
+        </activity>
+        <activity
+            android:name=".Widget1Activity"
+            android:label="@string/title_activity_widget1" >
+        </activity>
+        <activity
+            android:name=".ScrollListView"
+            android:label="@string/title_activity_widget1" />
+        <activity
+            android:name=".SubWidget1Activity"
+            android:label="@string/title_activity_sub_widget1" >
+        </activity>
+        <activity
+            android:name=".SubWidget2Activity"
+            android:label="@string/title_activity_sub_widget2" >
+        </activity>
+        <activity
+            android:name=".SubWidget3Activity"
+            android:label="@string/title_activity_sub_widget3" >
+        </activity>
+        <activity
+            android:name=".ListView1"
+            android:label="@string/title_activity_list_view1" >
+        </activity>
+        <activity
+            android:name=".ListView2"
+            android:label="@string/title_activity_list_view2" >
+        </activity>
+        <activity
+            android:name=".ListView3"
+            android:label="@string/title_activity_list_view3" >
+        </activity>
+        <activity
+            android:name=".TabHostDemoActivity"
+            android:label="@string/title_activity_tab_host_demo" >
+        </activity>
+        <activity
+            android:name=".ExpandableListViewActivity"
+            android:label="ExpandableListViewActivity" >
+        </activity>
+        <activity
+            android:name=".Internet1Activity"
+            android:label="@string/title_activity_internet1" >
+        </activity>
+        <activity
+            android:name=".Annotation1Activity_"
+            android:label="@string/title_activity_annotation1" >
+        </activity>
+        <activity
+            android:name=".RXActivity_"
+            android:label="@string/title_activity_rx" >
+        </activity>
+        <activity
+            android:name=".SubPageView_"
+            android:label="@string/title_activity_sub_page_view" >
+        </activity>
+        <activity
+            android:name=".WeiBoActivity"
+            android:label="WeiBoActivity" >
+        </activity>
+        <activity
+            android:name=".HScrollTitleActivity"
+            android:exported="true"
+            android:label="HScrollTitleActivity" >
+        </activity>
+        <activity
+
+            android:name=".RadioScrollActivity"
+            android:label="@string/title_activity_radio_scroll" >
+        </activity>
+    </application>
+
+    <!--
+     <instrumentation android:name="android.test.InstrumentationTestRunner"
+         android:targetPackage="com.amar.hello2" android:label="SecondActivity" />
+    -->
+
+</manifest>

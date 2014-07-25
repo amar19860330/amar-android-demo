@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent">
+
+    <!-- 定义第一个表格布局，指定第二列允许收缩，第三列允许拉伸 -->
+    <TableLayout android:id="@+id/tablelayout1"
+                 android:layout_width="fill_parent"
+                 android:layout_height="wrap_content"
+                 android:shrinkColumns="1"
+                 android:stretchColumns="2">
+
+        <!-- 直接添加一个button，它自己会占用一行 -->
+        <Button android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:text="偶自己独占一行了"/>
+        <TableRow>
+            <Button android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:text="button1"/>
+            <Button android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="button2"/>
+            <Button android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="button3"/>
+        </TableRow>
+        <TableRow>
+            <Button android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:text="button4"/>
+            <Button android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="button5"/>
+            <Button android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="button6"/>
+        </TableRow>
+        <TableRow>
+            <Button android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:text="button7"/>
+            <Button android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="button8"/>
+            <Button android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="button9"/>
+            <Button android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="button10"/>
+        </TableRow>
+    </TableLayout>
+</LinearLayout>  
