@@ -2,150 +2,77 @@
               xmlns:tools="http://schemas.android.com/tools"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
-
               android:orientation="vertical"
               tools:context="com.amar.hello2.SubPageView">
 
-
     <LinearLayout
+        android:layout_weight="1"
         android:layout_width="match_parent"
-        android:layout_height="180dp"
+        android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="bottom|center_horizontal">
 
+        <EditText
+            android:id="@+id/unit_scroll"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"/>
         <Button
-            android:id="@+id/subPageBtn1"
-            android:text="按钮1"
+            android:id="@+id/up_scroll"
+            android:text="上滚"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <Button
+            android:id="@+id/mid_scroll"
+            android:text="中间"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <Button
+            android:id="@+id/down_scroll"
+            android:text="下滚"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
-        <Button
-            android:id="@+id/subPageBtn2"
-            android:text="按钮2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-
-        <Button
-            android:id="@+id/subPageBtn3"
-            android:text="按钮3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-
-        <Button
-            android:id="@+id/subPageBtn4"
-            android:text="按钮4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
     </LinearLayout>
 
-    <RelativeLayout android:id="@+id/subPageContainer"
+<LinearLayout
+    android:layout_weight="8"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+    <Button
+        android:id="@+id/scroll_middle"
+        android:text="我在\n中间"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"/>
+    <ScrollView
+        android:id="@+id/scroll_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center_horizontal"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
         <LinearLayout
-            android:id="@+id/subPageItem1"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:visibility="invisible"
-            android:orientation="vertical">
-            <EditText
-                android:text="第1个视图中"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                />
-
-            <RadioGroup
-                android:id="@+id/recharge_type"
-                android:layout_width="match_parent"
-                android:layout_height="36dp"
-                android:layout_marginTop="22dp"
-                android:focusableInTouchMode="true"
-                android:orientation="horizontal">
-
-                <RadioButton
-                    android:id="@+id/recharge_type_1"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:button="@null"
-                    android:gravity="center"
-                    android:textColor="@color/bg_type_choose_font"
-                    android:text="第一"
-                    android:textSize="14dp" />
-
-                <View
-                    android:layout_width="1dp"
-                    android:layout_height="match_parent"
-                    android:background="#ff1185ec" />
-
-                <RadioButton
-                    android:id="@+id/recharge_type_2"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:button="@null"
-                    android:gravity="center"
-                    android:text="第二"
-                    android:textAlignment="center"
-                    android:textColor="@color/bg_type_choose_font"
-                    android:textSize="14dp" />
-
-                <View
-                    android:layout_width="1dp"
-                    android:layout_height="match_parent"
-                    android:background="#ff1185ec" />
-
-                <RadioButton
-                    android:id="@+id/recharge_type_3"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:button="@null"
-                    android:gravity="center"
-                    android:text="第三"
-                    android:textColor="@color/bg_type_choose_font"
-                    android:textAlignment="center"
-                    android:textSize="14dp" />
-
-
-
-            </RadioGroup>
-        </LinearLayout>
-        <LinearLayout
-            android:id="@+id/subPageItem2"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:visibility="invisible"
             >
-            <EditText
-                android:text="第2个视图中"
+            <TextView
+                android:text="电影开头，一场发生的远方的大爆炸引发大洪水，亚特兰蒂斯岛面临灭顶之灾。全城大撤退之时，亚特兰蒂斯女王身上突然发生奇怪的蓝色光芒，将她抬起后送入“亚特兰蒂斯之心”，这是块保护着城市的强大水晶。女王消失在水晶中，这时城市上空出现圆形屏障，保护着城市最内部的区域。女王的女儿姬坦公主、国王基舍金·内达克都幸存下来，和岛一起沉入海底。一万年后的1914年，史密森尼学会语言学家兼制图师迈罗·戴奇相信自己已经找到《牧羊人之书》，传说这份古老的手稿中藏有亚特兰蒂斯岛的方位。他向博物馆董事会提议搜寻这份手稿但遭到拒绝，之前对亚特兰蒂斯锲而不舍的研究已让他成为众人的笑柄。之后，一位名叫海尔格·辛克莱尔的神秘女子把迈罗介绍给了普雷斯顿·B·惠特莫尔，这是位性情古怪的百万富翁。惠特莫尔之前已经通过资助一场行动成功找回《牧羊人之书》，为了报答迈罗祖父当年的恩情，他请迈罗来解密手稿，并且之后的探险也会由他指挥。之前找回《牧羊人之书》的探险队指挥官洛克中校带领一支专家队伍同迈罗一起踏上寻找亚特兰蒂斯的旅程。这些人包括爆破专家文尼、地质学家摩尔、医务官斯维特大夫、无线电操作员帕卡德夫人、技工奥黛丽和大厨曲奇。他们乘坐的巨型潜艇“尤利西斯号”（Ulysses）很快受到可怕的利维坦袭击，这是一种看起来有些像龙虾的机器人，保卫着前往亚特兰蒂斯的通道入口。“尤利西斯号”遭其摧毁，但迈罗等人成功逃生，并根据《牧羊人之书》的描绘成功找到了入口。经过一系列的洞穴和休眠火山后，一行人到达亚特兰蒂斯。他们受到年轻女孩姬坦的欢迎，但她只是看起来年轻，实际上已经活了一万多年，众人很快发现亚特兰蒂斯语是现存许多已有语言的基础，亚特兰蒂斯的人民也正是因此能够听懂英语。姬坦请迈罗协助自己一起破译早已被当地人遗忘的亚特兰蒂斯书面语言。两人一起游入城市被水淹没的遗址并破译水下壁画，发现亚特兰蒂斯之心原来是整个城市的能量来源，还能通过环绕在人们脖子上的水晶项链让他们健康长寿。迈罗对《牧羊人之书》没有记载这些内容感到意外，但经过检查发现原来书稿中有一页内容缺失。与姬坦一起返回亚特兰蒂斯地面后，迈罗发现失落的那一页是被洛克拿走了，洛克一行人背叛了迈罗，打算把晶体带回地面出售。亚特兰蒂斯国王在洛克的拷问下受了致命重伤，但仍然拒绝透露水晶的位置，可洛克还是发现晶体隐藏在国王宝座室的下方。水晶感觉到有威胁临近，于是同姬坦的项链合并在一起。洛克和众雇佣兵把姬坦锁进笼子里准备返回地表。迈罗深知水晶离开后整个亚特兰蒂斯都将毁于一旦，他痛斥自己的朋友们背叛良知，最终成功说服了他们离弃洛克留在亚特兰蒂斯。国王告诉迈罗，水晶已经有了自我意识，会在亚特兰蒂斯有危险时找到王室血脉。临死前，他把自己的水晶交给迈罗，请求他挽救姬坦和亚特兰蒂斯。在斯维特的鼓励下，迈罗与朋友以及亚特兰蒂斯的公民联合起来前去阻止洛克。双方在火山中展开大战，海尔格及一众雇佣兵都被打败，迈罗用水晶碎片划伤了洛克的手，一股魔力逐渐把他变成了石头，然后撞上了自己气船的螺旋桨。就在迈克等人带着水晶返回亚特兰蒂斯时，火山爆发了。熔岩朝城市不断逼近，这时姬达幻化成水晶飞上天空，形成一片保护罩。熔岸退去后，亚特兰蒂斯安然无恙，水晶也返回姬坦和迈罗身上。大难不死的一众船员返回地面，并承诺会将亚特兰蒂斯的经历保密。迈罗这时已爱上姬坦，他留了下来，帮她重建这个失落的帝国。"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 />
         </LinearLayout>
-        <LinearLayout
-            android:id="@+id/subPageItem3"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:visibility="invisible">
-            <EditText
-                android:text="第3个视图中"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                />
-        </LinearLayout>
-        <LinearLayout
-            android:id="@+id/subPageItem4"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:visibility="invisible">
-            <EditText
-                android:text="第4个视图中"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                />
-        </LinearLayout>
-    </RelativeLayout>
+    </ScrollView>
+</LinearLayout>
 
+    <LinearLayout
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="bottom|center_horizontal">
+        <Button
+            android:id="@+id/scroll_menu1"
+            android:text="菜单"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
 </LinearLayout>
