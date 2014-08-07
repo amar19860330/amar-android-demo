@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ScrollView;
+import android.widget.TextView;
 
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.Click;
@@ -25,6 +26,9 @@ public class SubPageView extends BaseActivity
     @ViewById( resName = "unit_scroll" )
     protected EditText unitEdtExt;
 
+    @ViewById( resName = "height_scroll" )
+    protected TextView heightTxt;
+
     @AfterViews
     public void afterViews()
     {
@@ -34,14 +38,14 @@ public class SubPageView extends BaseActivity
     void upScroll()
     {
         int scrollY = scrollView.getScrollY();
-        scrollHeightOffset( scrollY + getUnit(), scrollView );
+        scrollHeightOffset( scrollY - getUnit(), scrollView );
     }
 
     @Click( R.id.down_scroll )
     void downScroll()
     {
         int scrollY = scrollView.getScrollY();
-        scrollHeightOffset( scrollY - getUnit(), scrollView );
+        scrollHeightOffset( scrollY + getUnit(), scrollView );
     }
 
     @Click( R.id.mid_scroll )
@@ -49,12 +53,11 @@ public class SubPageView extends BaseActivity
     {
         int[] location = new int[ 2 ];
         middleBtn.getLocationOnScreen( location );
-        int offset = location[ 1 ] - scrollView.getMeasuredHeight();
-        if ( offset < 0 )
-        {
-            offset = 0;
-        }
-        scrollHeightOffset( offset, scrollView );
+
+        int start = scrollView.getScrollY();
+        //int offset = start - location[ 0 ];
+
+        scrollHeightOffset( location[ 1 ], scrollView );
     }
 
     void scrollHeightOffset( final int heightOffset, final ScrollView scrollView )
@@ -65,6 +68,8 @@ public class SubPageView extends BaseActivity
             public void run()
             {
                 scrollView.smoothScrollTo( 0, heightOffset );
+
+                heightTxt.setText( "Y:" + heightOffset );
             }
         } );
     }
