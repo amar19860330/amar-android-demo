@@ -22,4 +22,10 @@
         android:layout_height="wrap_content"
         android:text="Display Download Status" />
 
+    <Button
+        android:id="@+id/internet_button4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Download apk" />
+
 </LinearLayout>

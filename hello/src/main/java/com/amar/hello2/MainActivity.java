@@ -342,7 +342,7 @@ public class MainActivity extends BaseActivity
         String shortcutName = getString( R.string.app_name );
 //        if ( !shortCut.hasShortcut( this, shortcutName ) )
 //        {
-            shortcutUtils.creatShortCut( this, shortcutName, R.drawable.ic_launcher );
+            //shortcutUtils.creatShortCut( this, shortcutName, R.drawable.ic_launcher );
 //        }
     }
 
