@@ -15,6 +15,12 @@ public class Widget1Activity extends BaseActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_widget1);
     }
+
+    public void gotoService(View view)
+    {
+        Intent intent = new Intent(this, ServiceActivity_.class);
+        startActivity(intent);
+    }
     public void gotoRadioSrcollView(View view)
     {
         Intent intent = new Intent(this, RadioScrollActivity.class);

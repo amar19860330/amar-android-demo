@@ -97,5 +97,10 @@
         android:text="单选滚动视图"
         android:id="@+id/button11"
         android:onClick="gotoRadioSrcollView"/>
-    gotoRadioSrcollView
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="服务"
+        android:id="@+id/button12"
+        android:onClick="gotoService"/>
 </GridLayout>
