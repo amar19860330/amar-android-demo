@@ -103,4 +103,11 @@
         android:text="服务"
         android:id="@+id/button12"
         android:onClick="gotoService"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="抽屉"
+        android:id="@+id/button13"
+        android:onClick="gotoDrawer"/>
+
 </GridLayout>
