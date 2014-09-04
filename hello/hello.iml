@@ -106,10 +106,11 @@
     <orderEntry type="library" exported="" name="retrofit-1.6.0" level="project" />
     <orderEntry type="library" exported="" name="eventbus-2.2.1" level="project" />
     <orderEntry type="library" exported="" name="gson-2.2.4" level="project" />
+    <orderEntry type="library" exported="" name="support-v4-19.1.0" level="project" />
     <orderEntry type="library" exported="" name="rxjava-android-0.18.4" level="project" />
     <orderEntry type="library" exported="" name="libGoogleAnalyticsServices" level="project" />
-    <orderEntry type="library" exported="" name="androidannotations-api-3.0.1" level="project" />
     <orderEntry type="library" exported="" name="rxjava-core-0.18.4" level="project" />
+    <orderEntry type="library" exported="" name="androidannotations-api-3.0.1" level="project" />
     <orderEntry type="library" exported="" name="android-async-http-1.4.5" level="project" />
   </component>
 </module>

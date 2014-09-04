@@ -24,7 +24,7 @@ android {
             def root = new XmlParser().parse("${rootProject.relativePath(projectDir)}/src/main/AndroidManifest.xml")
             println "package = ${root.attribute("package")}"
 
-            for(ss in root.activity){
+            for (ss in root.activity) {
                 println "activitys = ${ss.attribute("android:name")}"
             }
 
@@ -63,12 +63,14 @@ apt {
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     //compile fileTree(dir: 'libs', include: ['*.jar', '*.aar'])
-    compile 'com.netflix.rxjava:rxjava-android:0.18.+'
-    compile 'com.squareup.retrofit:retrofit:1.6.0'
+
 
     apt "org.androidannotations:androidannotations:$AAVersion"
     compile "org.androidannotations:androidannotations-api:$AAVersion"
     compile 'de.greenrobot:eventbus:2.2.+'
-    compile 'com.loopj.android:android-async-http:1.4.+'
     compile 'de.greenrobot:eventbus:2.2.+'
+    compile 'com.netflix.rxjava:rxjava-android:0.18.+'
+    compile 'com.squareup.retrofit:retrofit:1.6.0'
+    compile 'com.loopj.android:android-async-http:1.4.+'
+    compile 'com.android.support:support-v4:19.1.0'
 }
