@@ -37,5 +37,6 @@
     <string name="title_activity_sub_page_view">SubPageView</string>
     <string name="title_activity_radio_scroll">RadioScrollActivity</string>
     <string name="title_activity_service">ServiceActivity</string>
+    <string name="title_activity_drawer">DrawerActivity</string>
 
 </resources>

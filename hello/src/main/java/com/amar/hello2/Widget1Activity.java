@@ -24,7 +24,8 @@ public class Widget1Activity extends BaseActivity
 
     public void gotoDrawer( View view )
     {
-
+        Intent intent = new Intent( this, DrawerActivity.class );
+        startActivity( intent );
     }
 
     public void gotoService( View view )

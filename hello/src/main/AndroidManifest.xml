@@ -194,6 +194,12 @@
             android:exported="true"
             android:label="@string/title_activity_service" >
         </activity>
+        <activity
+            android:name=".DrawerActivity"
+            android:label="@string/title_activity_drawer"
+            android:exported="true"
+            />
+
     </application>
 
     <!--
