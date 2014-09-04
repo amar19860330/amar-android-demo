@@ -24,6 +24,7 @@
     <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS" />
     <uses-permission android:name="com.android.launcher.permission.UNINSTALL_SHORTCUT" />
     <uses-permission android:name="android.permission.ACCESS_DOWNLOAD_MANAGER" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
 
     <application
         android:allowBackup="true"
@@ -107,25 +108,31 @@
         </activity>
         <activity
             android:name=".Widget1Activity"
+            android:exported="true"
             android:label="@string/title_activity_widget1" >
         </activity>
         <activity
             android:name=".ScrollListView"
+            android:exported="true"
             android:label="@string/title_activity_widget1" />
         <activity
             android:name=".SubWidget1Activity"
+            android:exported="true"
             android:label="@string/title_activity_sub_widget1" >
         </activity>
         <activity
             android:name=".SubWidget2Activity"
+            android:exported="true"
             android:label="@string/title_activity_sub_widget2" >
         </activity>
         <activity
             android:name=".SubWidget3Activity"
+            android:exported="true"
             android:label="@string/title_activity_sub_widget3" >
         </activity>
         <activity
             android:name=".ListView1"
+            android:exported="true"
             android:label="@string/title_activity_list_view1" >
         </activity>
         <activity

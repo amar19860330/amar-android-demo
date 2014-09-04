@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:text="four"
+        android:id="@+id/TextView04"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+    </TextView>
+
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="姓名"
+            android:textSize="20px"
+            android:id="@+id/nameLable"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="20"
+            android:layout_toRightOf="@id/nameLable"
+            android:layout_alignTop="@id/nameLable"
+            android:layout_marginLeft="10px"
+            android:id="@+id/name"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20px"
+            android:text="年龄"
+            android:id="@+id/ageLable"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="20"
+            android:layout_toRightOf="@id/ageLable"
+            android:layout_alignTop="@id/ageLable"
+            android:layout_marginLeft="10px"
+            android:id="@+id/age"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="保存设置"
+            android:id="@+id/button"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="显示"
+            android:layout_toRightOf="@id/button"
+            android:layout_alignTop="@id/button"
+            android:id="@+id/showButton"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="提示框"
+            android:layout_toRightOf="@id/showButton"
+            android:layout_alignTop="@id/button"
+            android:id="@+id/tipButton"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="等待框"
+            android:layout_toRightOf="@id/tipButton"
+            android:layout_alignTop="@id/button"
+            android:id="@+id/waitButton"/>
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/showText"/>
+
+    <Spinner
+        android:id="@+id/type_spinner"
+        android:layout_width="206dp"
+        android:layout_height="40dp"
+        android:background="@drawable/bg_bank_choose_spinner"
+        />
+</LinearLayout>

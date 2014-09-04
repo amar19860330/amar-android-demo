@@ -1,7 +1,9 @@
 package com.amar.hello2;
 
 import android.app.Activity;
+import android.app.ActivityManager;
 import android.content.ComponentName;
+import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
 import android.content.pm.ActivityInfo;
@@ -15,6 +17,9 @@ import android.view.MenuItem;
 
 import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EActivity;
+
+import android.app.ActivityManager.RunningTaskInfo;
+import android.app.ActivityManager.RunningServiceInfo;
 
 import java.util.List;
 
@@ -41,6 +46,9 @@ public class ServiceActivity extends Activity
         }
     };
 
+    /**
+     * 检测所有已经安装程序的包名
+     */
     void printPackage()
     {
         PackageManager pManager = getPackageManager();
@@ -57,32 +65,23 @@ public class ServiceActivity extends Activity
                 }
             }
         }
+    }
 
-        //        for ( int i = 0 ; i < packageInfos.size() ; i++ )
-        //        {
-        //            PackageInfo apk = ( PackageInfo ) packageInfos.get( i );
-        //判断是否为非系统预装的应用程序
-        //            if ( ( apk.applicationInfo.flags & apk.applicationInfo.FLAG_SYSTEM ) <= 0 )
-        //            {
-        //                ActivityInfo[] activitys = apk.activities;
-        //                if ( activitys != null )
-        //                {
-        //                    Log.d( tag, activitys.length + "" );
-        //                }
-        //                Log.d( tag, apk.packageName + "," + apk.versionName + "," + apk.applicationInfo );
-        //            }
-        //            Intent intent = pManager.getLaunchIntentForPackage( packageInfos.get( i ).packageName );
-        //            if ( intent != null )
-        //            {
-        //                Log.d( tag, intent.toString() );
-        //            }
-        //        }
+    void isRunning()
+    {
+        ActivityManager am = ( ActivityManager ) this.getSystemService( Context.ACTIVITY_SERVICE );
+        List< RunningTaskInfo > list = am.getRunningTasks( 100 );
+        for ( RunningTaskInfo info : list )
+        {
+            Log.i( tag, "name==>" + info.baseActivity.getPackageName() + "===>" + info.topActivity.getPackageName() + "==>" + info.topActivity.toString() );
+        }
     }
 
     @Click( resName = "service_start_1" )
     void start1()
     {
-        printPackage();
+        //printPackage();
+        isRunning();
         Intent startIntent = new Intent( this, MyDemo1Service.class );
         startService( startIntent );
     }
