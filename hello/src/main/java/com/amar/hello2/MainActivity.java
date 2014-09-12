@@ -50,6 +50,7 @@ public class MainActivity extends BaseActivity
 
     public static final int REQUEST_CODE = 501;
 
+    int openApp = 1;
     private OnClickListener onClicklistener = new OnClickListener()
     {
         public void onClick( View v )
@@ -59,6 +60,24 @@ public class MainActivity extends BaseActivity
             {
                 case R.id.button1:
                     Toast.makeText( MainActivity.this, editText1.getText(), Toast.LENGTH_LONG ).show();
+                    if ( openApp == 1 )
+                    {
+                        intent = new Intent();
+                        intent.putExtra( "username", "qinxiaoxiao" );
+                        intent.putExtra( "password", "123456" );
+                        Uri data = Uri.parse( "ued/login://" );
+                        intent.setData( data );
+                        startActivity( intent );
+                        openApp = 2;
+                    }
+                    else
+                    {
+                        intent = new Intent();
+                        Uri data = Uri.parse( "ued/home://" );
+                        intent.setData( data );
+                        startActivity( intent );
+                        openApp = 1;
+                    }
                     break;
                 case R.id.button2:
                     intent = new Intent();
@@ -340,10 +359,10 @@ public class MainActivity extends BaseActivity
 
         ShortcutUtils shortcutUtils = new ShortcutUtils();
         String shortcutName = getString( R.string.app_name );
-//        if ( !shortCut.hasShortcut( this, shortcutName ) )
-//        {
-            //shortcutUtils.creatShortCut( this, shortcutName, R.drawable.ic_launcher );
-//        }
+        //        if ( !shortCut.hasShortcut( this, shortcutName ) )
+        //        {
+        //shortcutUtils.creatShortCut( this, shortcutName, R.drawable.ic_launcher );
+        //        }
     }
 
 }
