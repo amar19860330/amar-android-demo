@@ -2,12 +2,14 @@ package com.amar.hello2;
 
 import wyf.zcl.DBActivity;
 
+import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Intent;
+import android.provider.ContactsContract;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MotionEvent;
@@ -50,6 +52,79 @@ public class MainActivity extends BaseActivity
 
     public static final int REQUEST_CODE = 501;
 
+    String TAG = "MainActivity";
+
+    public void readAllContacts()
+    {
+
+        Cursor cursor = this.getContentResolver().query( ContactsContract.Contacts.CONTENT_URI, null, null, null, null );
+        int contactIdIndex = 0;
+        int nameIndex = 0;
+
+        int count = cursor.getCount();
+        if ( count < 1 )
+        {
+            return;
+        }
+
+        contactIdIndex = cursor.getColumnIndex( ContactsContract.Contacts._ID );
+        nameIndex = cursor.getColumnIndex( ContactsContract.Contacts.DISPLAY_NAME );
+
+        while ( cursor.moveToNext() )
+        {
+            String contactId = cursor.getString( contactIdIndex );
+            String name = cursor.getString( nameIndex );
+            Log.i( TAG, contactId + "==》" + name );
+
+            Cursor phones = this.getContentResolver().query( ContactsContract.CommonDataKinds.Phone.CONTENT_URI, null, ContactsContract.CommonDataKinds.Phone.CONTACT_ID + "=" + contactId, null, null );
+            int phoneIndex = 0;
+            if ( phones.getCount() > 0 )
+            {
+                phoneIndex = phones.getColumnIndex( ContactsContract.CommonDataKinds.Phone.NUMBER );
+            }
+            while ( phones.moveToNext() )
+            {
+                String phoneNumber = phones.getString( phoneIndex );
+                Log.i( TAG, phoneNumber );
+            }
+        }
+    }
+
+    public void sendSms()
+    {
+        Uri uri = Uri.parse( "smsto:" + editText2.getText() );
+        Intent sendIntent2 = new Intent( Intent.ACTION_SENDTO, uri );
+        sendIntent2.putExtra( "sms_body", editText1.getText().toString() );
+        startActivity( sendIntent2 );
+    }
+
+    /**
+     * 外部调用的接口
+     */
+    public void callApp()
+    {
+        Intent intent ;
+
+        if ( openApp == 1 )
+        {
+            intent = new Intent();
+            intent.putExtra( "username", "qinxiaoxiao" );
+            intent.putExtra( "password", "123456" );
+            Uri data = Uri.parse( "ued/login://" );
+            intent.setData( data );
+            startActivity( intent );
+            openApp = 2;
+        }
+        else
+        {
+            intent = new Intent();
+            Uri data = Uri.parse( "ued/home://" );
+            intent.setData( data );
+            startActivity( intent );
+            openApp = 1;
+        }
+    }
+
     int openApp = 1;
     private OnClickListener onClicklistener = new OnClickListener()
     {
@@ -60,24 +135,8 @@ public class MainActivity extends BaseActivity
             {
                 case R.id.button1:
                     Toast.makeText( MainActivity.this, editText1.getText(), Toast.LENGTH_LONG ).show();
-                    if ( openApp == 1 )
-                    {
-                        intent = new Intent();
-                        intent.putExtra( "username", "qinxiaoxiao" );
-                        intent.putExtra( "password", "123456" );
-                        Uri data = Uri.parse( "ued/login://" );
-                        intent.setData( data );
-                        startActivity( intent );
-                        openApp = 2;
-                    }
-                    else
-                    {
-                        intent = new Intent();
-                        Uri data = Uri.parse( "ued/home://" );
-                        intent.setData( data );
-                        startActivity( intent );
-                        openApp = 1;
-                    }
+
+                    readAllContacts();
                     break;
                 case R.id.button2:
                     intent = new Intent();
