@@ -4,13 +4,13 @@
     android:versionCode="1"
     android:versionName="1.0" >
 
-    <meta-data
-        android:name="UMENG_CHANNEL"
-        android:value="UMENG_CHANNEL_VALUE" />
-
     <uses-sdk
         android:minSdkVersion="10"
         android:targetSdkVersion="10" />
+
+    <meta-data
+        android:name="UMENG_CHANNEL"
+        android:value="UMENG_CHANNEL_VALUE" />
 
     <uses-permission android:name="android.permission.CALL_PHONE" />
     <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
@@ -25,8 +25,16 @@
     <uses-permission android:name="com.android.launcher.permission.UNINSTALL_SHORTCUT" />
     <uses-permission android:name="android.permission.ACCESS_DOWNLOAD_MANAGER" />
     <uses-permission android:name="android.permission.GET_TASKS" />
-    <uses-permission android:name="android.permission.SEND_SMS"/>
+    <uses-permission android:name="android.permission.SEND_SMS" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
+
+    <!--
+     <instrumentation android:name="android.test.InstrumentationTestRunner"
+         android:targetPackage="com.amar.hello2" android:label="SecondActivity" />
+    -->
+
+    <android:uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <android:uses-permission android:name="android.permission.READ_CALL_LOG" />
 
     <application
         android:allowBackup="true"
@@ -40,15 +48,15 @@
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name="com.amar.hello2.MainActivity"
             android:label="@string/app_name" >
         </activity>
 
         <activity-alias
-            android:name=".A3"
+            android:name="com.amar.hello2.A3"
             android:icon="@drawable/ic_launcher"
             android:label="@string/app_name"
-            android:targetActivity="${applicationId}.MainActivity" >
+            android:targetActivity="com.amar.hello2.MainActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -57,156 +65,155 @@
         </activity-alias>
 
         <activity
-            android:name=".SecondActivity"
+            android:name="com.amar.hello2.SecondActivity"
             android:label="@string/app_name"
             android:theme="@android:style/Theme.Black.NoTitleBar" >
         </activity>
         <activity
-            android:name=".ThirdActivity"
+            android:name="com.amar.hello2.ThirdActivity"
             android:label="@string/app_name"
             android:theme="@style/Theme.MyDialog" >
         </activity>
         <!-- android:theme="@android:style/Theme.Wallpaper" -->
         <activity
-            android:name="wyf.zcl.DBActivity"
+            android:name="com.amar.hello2.DBActivity"
+            android:exported="true"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name=".NetWorkActivity"
+            android:name="com.amar.hello2.NetWorkActivity"
             android:label="@string/app_name"
             android:theme="@android:style/Theme.Black.NoTitleBar" >
         </activity>
         <activity
-            android:name=".FragmentDemoActivity"
+            android:name="com.amar.hello2.FragmentDemoActivity"
             android:label="@string/title_activity_fragment" >
         </activity>
         <activity
-            android:name=".MyLayoutActivity"
+            android:name="com.amar.hello2.MyLayoutActivity"
             android:label="@string/title_activity_mylayout" >
         </activity>
         <activity
-            android:name=".layout.MyTableActivity"
+            android:name="com.amar.hello2.layout.MyTableActivity"
             android:label="@string/title_activity_mylayout" >
         </activity>
         <activity
-            android:name=".layout.MyAbsActivity"
+            android:name="com.amar.hello2.layout.MyAbsActivity"
             android:label="@string/title_activity_mylayout" >
         </activity>
         <activity
-            android:name=".layout.MyFrameActivity"
+            android:name="com.amar.hello2.layout.MyFrameActivity"
             android:label="@string/title_activity_mylayout" >
         </activity>
         <activity
-            android:name=".layout.MyGridActivity"
+            android:name="com.amar.hello2.layout.MyGridActivity"
+            android:exported="true"
             android:label="@string/title_activity_mylayout" >
         </activity>
         <activity
-            android:name=".layout.MyLinearActivity"
+            android:name="com.amar.hello2.layout.MyLinearActivity"
             android:label="@string/title_activity_mylayout" >
         </activity>
         <activity
-            android:name=".layout.MyRelatActivity"
+            android:name="com.amar.hello2.layout.MyRelatActivity"
             android:label="@string/title_activity_mylayout" >
         </activity>
         <activity
-            android:name=".Widget1Activity"
+            android:name="com.amar.hello2.Widget1Activity"
             android:exported="true"
             android:label="@string/title_activity_widget1" >
         </activity>
         <activity
-            android:name=".ScrollListView"
+            android:name="com.amar.hello2.ScrollListView"
             android:exported="true"
             android:label="@string/title_activity_widget1" />
         <activity
-            android:name=".SubWidget1Activity"
+            android:name="com.amar.hello2.SubWidget1Activity"
             android:exported="true"
             android:label="@string/title_activity_sub_widget1" >
         </activity>
         <activity
-            android:name=".SubWidget2Activity"
+            android:name="com.amar.hello2.SubWidget2Activity"
             android:exported="true"
             android:label="@string/title_activity_sub_widget2" >
         </activity>
         <activity
-            android:name=".SubWidget3Activity"
+            android:name="com.amar.hello2.SubWidget3Activity"
             android:exported="true"
             android:label="@string/title_activity_sub_widget3" >
         </activity>
         <activity
-            android:name=".ListView1"
+            android:name="com.amar.hello2.ListView1"
             android:exported="true"
             android:label="@string/title_activity_list_view1" >
         </activity>
         <activity
-            android:name=".ListView2"
+            android:name="com.amar.hello2.ListView2"
             android:label="@string/title_activity_list_view2" >
         </activity>
         <activity
-            android:name=".ListView3"
+            android:name="com.amar.hello2.ListView3"
             android:label="@string/title_activity_list_view3" >
         </activity>
         <activity
-            android:name=".TabHostDemoActivity"
+            android:name="com.amar.hello2.TabHostDemoActivity"
             android:label="@string/title_activity_tab_host_demo" >
         </activity>
         <activity
-            android:name=".ExpandableListViewActivity"
+            android:name="com.amar.hello2.ExpandableListViewActivity"
             android:label="ExpandableListViewActivity" >
         </activity>
         <activity
-            android:name=".Internet1Activity"
+            android:name="com.amar.hello2.Internet1Activity"
             android:exported="true"
             android:label="@string/title_activity_internet1" >
         </activity>
         <activity
-            android:name=".Annotation1Activity_"
+            android:name="com.amar.hello2.Annotation1Activity_"
             android:label="@string/title_activity_annotation1" >
         </activity>
         <activity
-            android:name=".RXActivity_"
+            android:name="com.amar.hello2.RXActivity_"
             android:label="@string/title_activity_rx" >
         </activity>
         <activity
-            android:name=".SubPageView_"
+            android:name="com.amar.hello2.SubPageView_"
             android:exported="true"
             android:label="@string/title_activity_sub_page_view" >
         </activity>
         <activity
-            android:name=".WeiBoActivity"
+            android:name="com.amar.hello2.WeiBoActivity"
             android:label="WeiBoActivity" >
         </activity>
         <activity
-            android:name=".HScrollTitleActivity"
+            android:name="com.amar.hello2.HScrollTitleActivity"
             android:exported="true"
             android:label="HScrollTitleActivity" >
         </activity>
         <activity
-            android:name=".RadioScrollActivity"
+            android:name="com.amar.hello2.RadioScrollActivity"
             android:label="@string/title_activity_radio_scroll" >
         </activity>
 
         <service
-            android:name=".MyDemo1Service"
+            android:name="com.amar.hello2.MyDemo1Service"
             android:enabled="true"
             android:exported="true" >
         </service>
 
         <activity
-            android:name=".ServiceActivity_"
+            android:name="com.amar.hello2.ServiceActivity_"
             android:exported="true"
             android:label="@string/title_activity_service" >
         </activity>
         <activity
-            android:name=".DrawerActivity"
-            android:label="@string/title_activity_drawer"
+            android:name="com.amar.hello2.DrawerActivity"
             android:exported="true"
-            />
-
+            android:label="@string/title_activity_drawer" />
+        <activity
+            android:name="com.amar.hello2.ShareAppActivity"
+            android:label="@string/title_activity_share_app" >
+        </activity>
     </application>
-
-    <!--
-     <instrumentation android:name="android.test.InstrumentationTestRunner"
-         android:targetPackage="com.amar.hello2" android:label="SecondActivity" />
-    -->
 
 </manifest>

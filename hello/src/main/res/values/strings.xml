@@ -38,5 +38,6 @@
     <string name="title_activity_radio_scroll">RadioScrollActivity</string>
     <string name="title_activity_service">ServiceActivity</string>
     <string name="title_activity_drawer">DrawerActivity</string>
+    <string name="title_activity_share_app">ShareAppActivity</string>
 
 </resources>

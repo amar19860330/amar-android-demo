@@ -1,7 +1,5 @@
 package com.amar.hello2;
 
-import wyf.zcl.DBActivity;
-
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
@@ -92,7 +90,7 @@ public class MainActivity extends BaseActivity
 
     public void sendSms()
     {
-        Uri uri = Uri.parse( "smsto:" + editText2.getText() );
+        Uri uri = Uri.parse( "smsto:" + "" );
         Intent sendIntent2 = new Intent( Intent.ACTION_SENDTO, uri );
         sendIntent2.putExtra( "sms_body", editText1.getText().toString() );
         startActivity( sendIntent2 );
@@ -113,7 +111,7 @@ public class MainActivity extends BaseActivity
             Uri data = Uri.parse( "ued/login://" );
             intent.setData( data );
             startActivity( intent );
-            openApp = 2;
+            //openApp = 2;
         }
         else
         {
@@ -121,11 +119,11 @@ public class MainActivity extends BaseActivity
             Uri data = Uri.parse( "ued/home://" );
             intent.setData( data );
             startActivity( intent );
-            openApp = 1;
+            //openApp = 1;
         }
     }
 
-    int openApp = 1;
+    int openApp = 2;
     private OnClickListener onClicklistener = new OnClickListener()
     {
         public void onClick( View v )
@@ -134,8 +132,10 @@ public class MainActivity extends BaseActivity
             switch ( v.getId() )
             {
                 case R.id.button1:
+                    editText1.setText( "<a href=\"sms:12345678\">给 12345678 发短信</a>" );
                     Toast.makeText( MainActivity.this, editText1.getText(), Toast.LENGTH_LONG ).show();
-
+                    //callApp();
+                    //sendSms();
                     readAllContacts();
                     break;
                 case R.id.button2:

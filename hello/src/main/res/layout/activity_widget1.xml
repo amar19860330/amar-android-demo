@@ -109,5 +109,11 @@
         android:text="抽屉"
         android:id="@+id/button13"
         android:onClick="gotoDrawer"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="分享"
+        android:id="@+id/button14"
+        android:onClick="gotoShare"/>
 
 </GridLayout>

@@ -8,6 +8,10 @@ import android.util.Log;
 
 public class SqLiteDBHelper extends SQLiteOpenHelper
 {
+    public SqLiteDBHelper(Context context) {
+        super(context, "db", null, 1);
+    }
+
 	public SqLiteDBHelper( Context context , String name , CursorFactory factory , int version )
 	{// 继承SQLiteOpenHelper的类，必须有该构造函数
 		super( context , name , factory , version );
@@ -17,7 +21,7 @@ public class SqLiteDBHelper extends SQLiteOpenHelper
 	public void onCreate( SQLiteDatabase db )
 	{
 		// 创建数据库时调用,此方法是在调用了getReadableDatabase()或getWritableDatabase()后才调用
-		db.execSQL( "create table sqlitetest(uid long,uname varchar(25))" );
+		db.execSQL( "create table myuser(userid long,username varchar(20))" );
 		Log.i( this.getClass().getName() , "already create a database:sqlitetest." );
 	}
 

@@ -22,6 +22,12 @@ public class Widget1Activity extends BaseActivity
 
     }
 
+    public void gotoShare(View view)
+    {
+        Intent intent = new Intent( this, ShareAppActivity.class );
+        startActivity( intent );
+    }
+
     public void gotoDrawer( View view )
     {
         Intent intent = new Intent( this, DrawerActivity.class );

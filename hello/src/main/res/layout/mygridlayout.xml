@@ -3,12 +3,12 @@
 <GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:rowCount="5"
             android:columnCount="4"
             android:numColumns="auto_fit"
             android:orientation="horizontal"
             android:columnWidth="180dp"
             android:stretchMode="columnWidth"
+            android:id="@+id/mygrid_layout"
             android:gravity="center"   >
 
     <Button
@@ -63,7 +63,8 @@
 
     <Button
         android:id="@+id/minus"
-        android:text="-"/>
+        android:text="-"
+        android:onClick="clearBtn"/>
 
     <Button
         android:id="@+id/zero"
@@ -79,6 +80,7 @@
         android:id="@+id/plus"
         android:layout_rowSpan="2"
         android:layout_gravity="fill_vertical"
+        android:onClick="addMoreBtn"
         android:text="+"/>
 
     <Button
@@ -86,4 +88,9 @@
         android:layout_columnSpan="3"
         android:layout_gravity="fill"
         android:text="="/>
+    <Button
+        android:text="8"/>
+
+    <Button
+        android:text="9"/>
 </GridLayout>
