@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<module external.linked.project.path="$MODULE_DIR$" external.root.project.path="$MODULE_DIR$/.." external.system.id="GRADLE" external.system.module.group="amar-android-demo" external.system.module.version="unspecified" type="JAVA_MODULE" version="4">
+<module external.linked.project.path="$MODULE_DIR$" external.root.project.path="$MODULE_DIR$/.." external.system.id="GRADLE" type="JAVA_MODULE" version="4">
   <component name="FacetManager">
     <facet type="android-gradle" name="Android-Gradle">
       <configuration>
@@ -10,7 +10,7 @@
       <configuration>
         <option name="SELECTED_BUILD_VARIANT" value="main2Debug" />
         <option name="ASSEMBLE_TASK_NAME" value="assembleMain2Debug" />
-        <option name="COMPILE_JAVA_TASK_NAME" value="compileMain2DebugJava" />
+        <option name="COMPILE_JAVA_TASK_NAME" value="compileMain2DebugSources" />
         <option name="ASSEMBLE_TEST_TASK_NAME" value="assembleMain2DebugTest" />
         <option name="SOURCE_GEN_TASK_NAME" value="generateMain2DebugSources" />
         <option name="TEST_SOURCE_GEN_TASK_NAME" value="generateMain2DebugTestSources" />
@@ -32,6 +32,7 @@
       <sourceFolder url="file://$MODULE_DIR$/build/generated/source/rs/main2/debug" isTestSource="false" generated="true" />
       <sourceFolder url="file://$MODULE_DIR$/build/generated/source/apt/main2/debug" isTestSource="false" generated="true" />
       <sourceFolder url="file://$MODULE_DIR$/build/generated/res/rs/main2/debug" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/build/generated/res/generated/main2/debug" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/main2Debug/res" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/main2Debug/resources" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/main2Debug/assets" type="java-resource" />
@@ -44,6 +45,7 @@
       <sourceFolder url="file://$MODULE_DIR$/build/generated/source/buildConfig/test/main2/debug" isTestSource="true" generated="true" />
       <sourceFolder url="file://$MODULE_DIR$/build/generated/source/rs/test/main2/debug" isTestSource="true" generated="true" />
       <sourceFolder url="file://$MODULE_DIR$/build/generated/res/rs/test/main2/debug" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/build/generated/res/generated/test/main2/debug" type="java-test-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/main2/res" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/main2/resources" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/main2/assets" type="java-resource" />
@@ -99,17 +101,19 @@
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/rs" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/symbols" />
       <excludeFolder url="file://$MODULE_DIR$/build/outputs" />
+      <excludeFolder url="file://$MODULE_DIR$/build/tmp" />
     </content>
-    <orderEntry type="jdk" jdkName="Android API 19 Platform (1)" jdkType="Android SDK" />
+    <orderEntry type="jdk" jdkName="Android API 19 Platform" jdkType="Android SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" exported="" name="retrofit-1.6.0" level="project" />
     <orderEntry type="library" exported="" name="eventbus-2.2.1" level="project" />
+    <orderEntry type="library" exported="" name="support-annotations-21.0.3" level="project" />
     <orderEntry type="library" exported="" name="gson-2.2.4" level="project" />
-    <orderEntry type="library" exported="" name="support-v4-19.1.0" level="project" />
-    <orderEntry type="library" exported="" name="rxjava-android-0.18.4" level="project" />
+    <orderEntry type="library" exported="" name="support-v4-21.0.3" level="project" />
+    <orderEntry type="library" exported="" name="androidannotations-api-3.2" level="project" />
     <orderEntry type="library" exported="" name="libGoogleAnalyticsServices" level="project" />
-    <orderEntry type="library" exported="" name="rxjava-core-0.18.4" level="project" />
-    <orderEntry type="library" exported="" name="androidannotations-api-3.0.1" level="project" />
+    <orderEntry type="library" exported="" name="rxjava-core-0.20.5" level="project" />
+    <orderEntry type="library" exported="" name="rxjava-android-0.20.5" level="project" />
     <orderEntry type="library" exported="" name="android-async-http-1.4.6" level="project" />
   </component>
 </module>

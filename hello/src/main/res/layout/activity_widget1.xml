@@ -115,5 +115,11 @@
         android:text="分享"
         android:id="@+id/button14"
         android:onClick="gotoShare"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="图片列表"
+        android:id="@+id/button15"
+        android:onClick="gotoImageList"/>
 
 </GridLayout>

@@ -16,13 +16,19 @@ public class Widget1Activity extends BaseActivity
         setContentView( R.layout.activity_widget1 );
     }
 
+    public void gotoImageList( View view )
+    {
+        Intent intent = new Intent( this, ListImageActivity_.class );
+        startActivity( intent );
+    }
+
     public void gotoMasterDetail( View view )
     {
 
 
     }
 
-    public void gotoShare(View view)
+    public void gotoShare( View view )
     {
         Intent intent = new Intent( this, ShareAppActivity.class );
         startActivity( intent );

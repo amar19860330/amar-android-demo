@@ -53,6 +53,7 @@ public class ShareAppActivity extends Activity
             intent.putExtra( Intent.EXTRA_STREAM, Uri.fromFile( new File( fileName ) ) );
             intent.setFlags( Intent.FLAG_ACTIVITY_NEW_TASK );
             intent.setComponent( comp );
+            intent.setFlags( Intent.FLAG_ACTIVITY_NEW_TASK );
             startActivity( intent );
         }
         catch ( Exception e )
@@ -83,6 +84,7 @@ public class ShareAppActivity extends Activity
         intent.setType( "image/*" );
         intent.putExtra( Intent.EXTRA_TEXT, "我是文字" );
         intent.putExtra( Intent.EXTRA_STREAM, Uri.fromFile( file ) );
+        intent.setFlags( Intent.FLAG_ACTIVITY_NEW_TASK );
         startActivity( intent );
     }
 
@@ -95,6 +97,7 @@ public class ShareAppActivity extends Activity
         intent.setType( "image/*" );
         intent.putExtra( Intent.EXTRA_TEXT, "我是文字" );
         intent.putExtra( Intent.EXTRA_STREAM, Uri.fromFile( file ) );
+        intent.setFlags( Intent.FLAG_ACTIVITY_NEW_TASK );
         startActivity( intent );
     }
 

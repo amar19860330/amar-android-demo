@@ -80,7 +80,7 @@ public class ServiceActivity extends Activity
     @Click( resName = "service_start_1" )
     void start1()
     {
-        //printPackage();
+        printPackage();
         isRunning();
         Intent startIntent = new Intent( this, MyDemo1Service.class );
         startService( startIntent );

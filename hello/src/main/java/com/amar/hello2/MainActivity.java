@@ -95,7 +95,7 @@ public class MainActivity extends BaseActivity
         sendIntent2.putExtra( "sms_body", editText1.getText().toString() );
         startActivity( sendIntent2 );
     }
-
+    int openApp = 3;
     /**
      * 外部调用的接口
      */
@@ -105,25 +105,61 @@ public class MainActivity extends BaseActivity
 
         if ( openApp == 1 )
         {
+                intent = new Intent();
+                intent.putExtra( "username", "qinxiaoxiao" );
+                intent.putExtra( "password", "123456" );
+                intent.putExtra( "invoker", "invoker" );
+                Uri data = Uri.parse( "ued/forgetpw://" );
+                intent.setData( data );
+                startActivity( intent );
+        }
+        else if( openApp == 2 )
+        {
             intent = new Intent();
-            intent.putExtra( "username", "qinxiaoxiao" );
-            intent.putExtra( "password", "123456" );
+            intent.putExtra( "invoker", "invoker" );
+            Uri data = Uri.parse( "ued/regist://" );
+            intent.setData( data );
+            startActivity( intent );
+        }
+        else if( openApp == 3 )
+        {
+            intent = new Intent();
+            intent.putExtra( "invoker", "invoker" );
+            intent.putExtra( "username", "sam" );
+            intent.putExtra( "password", "1234567" );
+            intent.putExtra( "targettype", "deposite" );
+            intent.putExtra( "target", "money" );
             Uri data = Uri.parse( "ued/login://" );
             intent.setData( data );
             startActivity( intent );
-            //openApp = 2;
         }
-        else
+        else if( openApp == 4 )
         {
             intent = new Intent();
-            Uri data = Uri.parse( "ued/home://" );
+            intent.putExtra( "invoker", "invoker" );
+            intent.putExtra( "username", "sam" );
+            intent.putExtra( "password", "1234567" );
+            intent.putExtra( "targettype", "withdrawal" );
+            intent.putExtra( "target", "money" );
+            Uri data = Uri.parse( "ued/login://" );
             intent.setData( data );
             startActivity( intent );
-            //openApp = 1;
+        }
+        else if( openApp == 5 )
+        {
+            intent = new Intent();
+            intent.putExtra( "invoker", "invoker" );
+            intent.putExtra( "username", "sam" );
+            intent.putExtra( "password", "1234567" );
+            intent.putExtra( "targettype", "transfer" );
+            intent.putExtra( "target", "money" );
+
+            Uri data = Uri.parse( "ued/login://" );
+            intent.setData( data );
+            startActivity( intent );
         }
     }
 
-    int openApp = 2;
     private OnClickListener onClicklistener = new OnClickListener()
     {
         public void onClick( View v )
@@ -134,9 +170,9 @@ public class MainActivity extends BaseActivity
                 case R.id.button1:
                     editText1.setText( "<a href=\"sms:12345678\">给 12345678 发短信</a>" );
                     Toast.makeText( MainActivity.this, editText1.getText(), Toast.LENGTH_LONG ).show();
-                    //callApp();
+                    callApp();
                     //sendSms();
-                    readAllContacts();
+                    //readAllContacts();
                     break;
                 case R.id.button2:
                     intent = new Intent();
