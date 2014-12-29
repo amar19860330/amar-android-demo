@@ -45,6 +45,8 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import android.view.ViewGroup.LayoutParams;
 import android.widget.Toast;
 
+import com.amar.hello2.widget.MyListView;
+
 import rx.Observable;
 import rx.Subscriber;
 import rx.functions.Action1;
@@ -53,9 +55,18 @@ import rx.functions.Action1;
 public class ListImageActivity extends BaseActivity implements View.OnTouchListener
 {
     @ViewById( resName = "other_menu" )
-    ListView menuListView;
+    MyListView menuListView;
     @ViewById( resName = "other" )
-    ListView otherListView;
+    MyListView otherListView;
+
+    private float mDownX;
+    private float mDownY;
+    private boolean isClick;
+    Subscriber< Long > otherSubscriber = null;
+    Subscriber< Long > menuSubscriber = null;
+    //AtomicBoolean otherAllowScroll = new AtomicBoolean( true );
+    //AtomicBoolean menuAllowScroll = new AtomicBoolean( true );
+    AtomicBoolean allowScroll = new AtomicBoolean( true );
 
     @AfterViews
     void afterViews()
@@ -93,13 +104,12 @@ public class ListImageActivity extends BaseActivity implements View.OnTouchListe
         menuListView.setOnTouchListener( this );
         otherListView.setOnTouchListener( this );
 
-        scrcollControl( menuListView, 50, 2, menuAllowScroll );
-        scrcollControl( otherListView, 30, 2, otherAllowScroll );
+        otherListView.setRelatedListView( menuListView );
+        menuListView.setRelatedListView( otherListView );
 
+        scrcollControl( menuListView, 50, 2, allowScroll );
+        scrcollControl( otherListView, 30, 2, allowScroll );
     }
-
-    AtomicBoolean otherAllowScroll = new AtomicBoolean( true );
-    AtomicBoolean menuAllowScroll = new AtomicBoolean( true );
 
     void scrcollControl( ListView listView, int scrollDelay, int scrollSpeed, AtomicBoolean allowScroll )
     {
@@ -139,10 +149,6 @@ public class ListImageActivity extends BaseActivity implements View.OnTouchListe
             _srcollHandler.postDelayed( this, _scrollDelay );
         }
     }
-
-    private float mDownX;
-    private float mDownY;
-    private boolean isClick;
 
     private void detectItemClick( ListView listView, MotionEvent event )
     {
@@ -211,27 +217,26 @@ public class ListImageActivity extends BaseActivity implements View.OnTouchListe
     {
         if ( v.getId() == menuListView.getId() )
         {
-            dealAction( event, menuSubscriber, menuListView, menuAllowScroll );
+            dealAction( event, menuSubscriber, allowScroll );
             detectItemClick( menuListView, event );
         }
         if ( v.getId() == otherListView.getId() )
         {
-            dealAction( event, otherSubscriber, otherListView, otherAllowScroll );
+            dealAction( event, otherSubscriber, allowScroll );
             detectItemClick( otherListView, event );
         }
 
         return false;
     }
 
-    public void dealAction( MotionEvent event, Subscriber< Long > subscriber, ListView listView, final AtomicBoolean allowScroll )
+    public void dealAction( MotionEvent event, Subscriber< Long > subscriber,final AtomicBoolean allowScroll )
     {
         if ( event.getAction() == MotionEvent.ACTION_DOWN )
         {
-            Log.d( "ListImageActivity", "ACTION_DOWN" );
+            allowScroll.set( false );
         }
         else if ( event.getAction() == MotionEvent.ACTION_UP )
         {
-            Log.d( "ListImageActivity", "ACTION_UP" );
             subscriber = new Subscriber< Long >()
             {
                 @Override
@@ -256,17 +261,13 @@ public class ListImageActivity extends BaseActivity implements View.OnTouchListe
         }
         else if ( event.getAction() == MotionEvent.ACTION_MOVE )
         {
-            Log.d( "ListImageActivity", "ACTION_MOVE" );
-            allowScroll.set( false );
+
             if ( subscriber != null && !subscriber.isUnsubscribed() )
             {
                 subscriber.unsubscribe();
             }
         }
     }
-
-    Subscriber< Long > otherSubscriber = null;
-    Subscriber< Long > menuSubscriber = null;
 
     public class ImageListAdapter extends BaseAdapter implements AbsListView.OnScrollListener, AdapterView.OnItemClickListener
     {
@@ -286,22 +287,12 @@ public class ListImageActivity extends BaseActivity implements View.OnTouchListe
         @Override
         public void onItemClick( AdapterView< ? > parent, View view, int position, long id )
         {
-
             Toast.makeText( _context, getItem( position ).toString() + ":" + position, Toast.LENGTH_SHORT ).show();
         }
 
         @Override
         public void onScrollStateChanged( AbsListView view, int scrollState )
         {
-            if ( SCROLL_STATE_IDLE == scrollState )
-            {
-            }
-            else if ( SCROLL_STATE_TOUCH_SCROLL == scrollState )
-            {
-            }
-            else if ( SCROLL_STATE_FLING == scrollState )
-            {
-            }
         }
 
         @Override
@@ -366,14 +357,6 @@ public class ListImageActivity extends BaseActivity implements View.OnTouchListe
 
             viewHolder.titleTxt.setText( position + ":" + position % dataList.size() );
             viewHolder.imageView.setImageResource( dataList.get( position % dataList.size() ) );
-            //            viewHolder.rootView.setOnClickListener( new View.OnClickListener()
-            //            {
-            //                @Override
-            //                public void onClick( View v )
-            //                {
-            //                    Log.d( "ListImageActivity", "" + _position + "" );
-            //                }
-            //            } );
             return convertView;
         }
 
