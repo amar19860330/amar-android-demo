@@ -26,3 +26,9 @@ proguard/
 /local.properties
 /.idea/workspace.xml
 .DS_Store
+
+.idea/
+.idea/**/
+*.iml
+*.ipr
+*.iws
