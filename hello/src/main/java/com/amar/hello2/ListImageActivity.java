@@ -95,6 +95,9 @@ public class ListImageActivity extends BaseActivity implements View.OnTouchListe
         otherListView.setAdapter( adapterOther );
         menuListView.setAdapter( adapterMenu );
 
+        otherListView.setSelection( 5000 );
+        menuListView.setSelection( 5000 );
+
         menuListView.setOnScrollListener( adapterMenu );
         otherListView.setOnScrollListener( adapterOther );
 
@@ -298,14 +301,14 @@ public class ListImageActivity extends BaseActivity implements View.OnTouchListe
         @Override
         public void onScroll( AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount )
         {
-            if ( firstVisibleItem <= 2 )
-            {
-                view.setSelection( dataList.size() + 2 );
-            }
-            else if ( firstVisibleItem + visibleItemCount > getCount() - 2 )
-            {
-                view.setSelection( firstVisibleItem - dataList.size() );
-            }
+//            if ( firstVisibleItem <= 2 )
+//            {
+//                view.setSelection( dataList.size() + 2 );
+//            }
+//            else if ( firstVisibleItem + visibleItemCount > getCount() - 2 )
+//            {
+//                view.setSelection( firstVisibleItem - dataList.size() );
+//            }
         }
 
         public void addData( List< Integer > dataList )
@@ -314,10 +317,11 @@ public class ListImageActivity extends BaseActivity implements View.OnTouchListe
             this.notifyDataSetChanged();
         }
 
+        private int friction = 10000;
         @Override
         public int getCount()
         {
-            return this.dataList.size() * 3;
+            return this.dataList.size() * friction;
         }
 
         @Override
