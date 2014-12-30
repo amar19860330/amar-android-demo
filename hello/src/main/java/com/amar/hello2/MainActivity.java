@@ -192,7 +192,7 @@ public class MainActivity extends BaseActivity
                 case R.id.button4:
                     intent = new Intent();
                     intent.setClass( MainActivity.this, ThirdActivity.class );
-                    startActivity( intent );
+                    //startActivity( intent );
                     break;
                 case R.id.button5:
                     intent = new Intent();

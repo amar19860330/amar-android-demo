@@ -70,6 +70,6 @@ dependencies {
     compile 'de.greenrobot:eventbus:2.2.1'
     compile 'com.netflix.rxjava:rxjava-android:0.20.5'
     compile 'com.squareup.retrofit:retrofit:1.6.0'
-    compile 'com.loopj.android:android-async-http:1.4.+'
     compile 'com.android.support:support-v4:21.0.3'
+    compile 'com.github.traex.rippleeffect:library:1.2.3'
 }

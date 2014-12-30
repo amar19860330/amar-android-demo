@@ -1,19 +1,20 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:id="@+id/root"
-    tools:context=".MainActivity" >
+                xmlns:tools="http://schemas.android.com/tools"
+                xmlns:ripple="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingBottom="@dimen/activity_vertical_margin"
+                android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:paddingRight="@dimen/activity_horizontal_margin"
+                android:paddingTop="@dimen/activity_vertical_margin"
+                android:id="@+id/root"
+                tools:context=".MainActivity">
 
     <TextView
         android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/hello_world" />
+        android:text="@string/hello_world"/>
 
     <EditText
         android:id="@+id/editText1"
@@ -26,7 +27,8 @@
         android:inputType="textPersonName"
         android:text="@string/mywife"
         android:textColor="@drawable/textedit_selector_1">
-        <requestFocus />
+
+        <requestFocus/>
     </EditText>
 
     <Button
@@ -35,7 +37,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/editText1"
         android:layout_marginTop="50dp"
-        android:text="按钮" />
+        android:text="按钮"/>
 
     <Button
         android:id="@+id/button2"
@@ -43,7 +45,7 @@
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/button1"
         android:layout_toRightOf="@+id/textView1"
-        android:text="打电话" />
+        android:text="打电话"/>
 
     <EditText
         android:id="@+id/editText2"
@@ -53,8 +55,7 @@
         android:ems="10"
         android:hint="@string/mywifePhoneNumber"
         android:inputType="textPersonName"
-        android:text="@string/mywifePhoneNumber" />
-
+        android:text="@string/mywifePhoneNumber"/>
 
 
     <Button
@@ -64,7 +65,7 @@
         android:layout_alignBaseline="@+id/button2"
         android:layout_alignBottom="@+id/button2"
         android:layout_alignRight="@+id/editText2"
-        android:text="跳转" />
+        android:text="跳转"/>
 
     <Button
         android:id="@+id/button5"
@@ -73,7 +74,7 @@
         android:layout_alignLeft="@+id/button1"
         android:layout_below="@+id/button1"
         android:layout_marginTop="22dp"
-        android:text="数据库" />
+        android:text="数据库"/>
 
     <Button
         android:id="@+id/button6"
@@ -82,7 +83,7 @@
         android:layout_alignBaseline="@+id/button5"
         android:layout_alignBottom="@+id/button5"
         android:layout_alignLeft="@+id/button2"
-        android:text="网络" />
+        android:text="网络"/>
 
     <Button
         android:id="@+id/button7"
@@ -91,7 +92,7 @@
         android:layout_alignLeft="@+id/button5"
         android:layout_below="@+id/button5"
         android:layout_marginTop="26dp"
-        android:text="碎片" />
+        android:text="碎片"/>
 
     <Button
         android:id="@+id/button8"
@@ -99,7 +100,7 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/button7"
         android:layout_alignLeft="@+id/button3"
-        android:text="等待" />
+        android:text="等待"/>
 
     <Button
         android:id="@+id/button9"
@@ -108,7 +109,8 @@
         android:layout_alignBaseline="@+id/button7"
         android:layout_alignBottom="@+id/button7"
         android:layout_alignLeft="@+id/button6"
-        android:text="通知" android:onClick="onClickNotification"  />
+        android:text="通知"
+        android:onClick="onClickNotification"/>
 
     <Switch
         android:layout_width="wrap_content"
@@ -143,14 +145,24 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
+
         android:onClick="onclickGotoWidget1"/>
 
-    <Button
-        android:id="@+id/button4"
+    <com.andexert.library.RippleView
+        android:id="@+id/more"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        
+        android:layout_alignBottom="@+id/button11"
         android:layout_toRightOf="@+id/button11"
-        android:layout_alignBaseline="@+id/button11"
-        android:text="对话框" />
+        >
+
+        <Button
+            android:id="@+id/button4"
+            android:layout_width="180dp"
+            android:layout_height="80dp"
+            android:background="@android:color/darker_gray"
+            android:text="对话框"/>
+    </com.andexert.library.RippleView>
 
 </RelativeLayout>
