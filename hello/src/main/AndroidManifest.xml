@@ -215,10 +215,14 @@
             android:label="@string/title_activity_share_app" >
         </activity>
         <activity
-            android:exported="true"
             android:name=".ListImageActivity_"
-            android:screenOrientation="portrait"
-            android:label="@string/title_activity_list_image" >
+            android:exported="true"
+            android:label="@string/title_activity_list_image"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".BlurActivity_"
+            android:label="@string/title_activity_blur" >
         </activity>
     </application>
 

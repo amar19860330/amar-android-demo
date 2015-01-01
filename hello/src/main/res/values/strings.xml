@@ -40,5 +40,6 @@
     <string name="title_activity_drawer">DrawerActivity</string>
     <string name="title_activity_share_app">ShareAppActivity</string>
     <string name="title_activity_list_image">ListImageActivity</string>
+    <string name="title_activity_blur">BlurActivity</string>
 
 </resources>

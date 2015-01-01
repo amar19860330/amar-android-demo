@@ -16,9 +16,15 @@ public class Widget1Activity extends BaseActivity
         setContentView( R.layout.activity_widget1 );
     }
 
+    public void gotoBlur( View view )
+    {
+        Intent intent = new Intent( this, BlurActivity_.class );
+        startActivity( intent );
+    }
+
     public void gotoImageList( View view )
     {
-        Intent intent = new Intent( this, ListImageActivity_.class );
+        Intent intent = new Intent( this,ListImageActivity_.class );
         startActivity( intent );
     }
 
@@ -30,103 +36,103 @@ public class Widget1Activity extends BaseActivity
 
     public void gotoShare( View view )
     {
-        Intent intent = new Intent( this, ShareAppActivity.class );
+        Intent intent = new Intent( this,ShareAppActivity.class );
         startActivity( intent );
     }
 
     public void gotoDrawer( View view )
     {
-        Intent intent = new Intent( this, DrawerActivity.class );
+        Intent intent = new Intent( this,DrawerActivity.class );
         startActivity( intent );
     }
 
     public void gotoService( View view )
     {
-        Intent intent = new Intent( this, ServiceActivity_.class );
+        Intent intent = new Intent( this,ServiceActivity_.class );
         startActivity( intent );
     }
 
     public void gotoRadioSrcollView( View view )
     {
-        Intent intent = new Intent( this, RadioScrollActivity.class );
+        Intent intent = new Intent( this,RadioScrollActivity.class );
         startActivity( intent );
     }
 
     public void gotoHSrcollView( View view )
     {
-        Intent intent = new Intent( this, HScrollTitleActivity.class );
+        Intent intent = new Intent( this,HScrollTitleActivity.class );
         startActivity( intent );
     }
 
     public void gotoPageView( View view )
     {
-        Intent intent = new Intent( this, WeiBoActivity.class );
+        Intent intent = new Intent( this,WeiBoActivity.class );
         startActivity( intent );
     }
 
     public void gotoSubPageView( View view )
     {
-        Intent intent = new Intent( this, SubPageView_.class );
+        Intent intent = new Intent( this,SubPageView_.class );
         startActivity( intent );
     }
 
     public void gotoRxView( View view )
     {
-        Intent intent = new Intent( this, RXActivity_.class );
+        Intent intent = new Intent( this,RXActivity_.class );
         startActivity( intent );
     }
 
     public void gotoPageDragDropView( View view )
     {
-        Intent intent = new Intent( this, ca.laplanete.mobile.example.MainActivity.class );
+        Intent intent = new Intent( this,ca.laplanete.mobile.example.MainActivity.class );
         startActivity( intent );
     }
 
     public void gotoAntotationView( View view )
     {
-        Intent intent = new Intent( this, Annotation1Activity_.class );
+        Intent intent = new Intent( this,Annotation1Activity_.class );
         startActivity( intent );
     }
 
     public void onclickListview1( View view )
     {
-        Intent intent = new Intent( this, ScrollListView.class );
+        Intent intent = new Intent( this,ScrollListView.class );
         startActivity( intent );
     }
 
     public void onclickListview2( View view )
     {
-        Intent intent = new Intent( this, TabHostDemoActivity.class );
+        Intent intent = new Intent( this,TabHostDemoActivity.class );
         startActivity( intent );
     }
 
     public void onclickListview3( View view )
     {
-        Intent intent = new Intent( this, ExpandableListViewActivity.class );
+        Intent intent = new Intent( this,ExpandableListViewActivity.class );
         startActivity( intent );
     }
 
     public void onclickInternetDown( View view )
     {
-        Intent intent = new Intent( this, Internet1Activity.class );
+        Intent intent = new Intent( this,Internet1Activity.class );
         startActivity( intent );
     }
 
     public void onclickSubWiget1( View view )
     {
-        Intent intent = new Intent( this, SubWidget1Activity.class );
+        Intent intent = new Intent( this,SubWidget1Activity.class );
         startActivity( intent );
     }
 
     public void onclickSubWiget3( View view )
     {
-        Intent intent = new Intent( this, SubWidget3Activity.class );
+        Intent intent = new Intent( this,SubWidget3Activity.class );
         startActivity( intent );
     }
 
     public void onclickSubWiget2( View view )
     {
-        Intent intent = new Intent( this, SubWidget2Activity.class );
+        Intent intent = new Intent( this,SubWidget2Activity.class );
         startActivity( intent );
     }
 
@@ -134,7 +140,7 @@ public class Widget1Activity extends BaseActivity
     public boolean onCreateOptionsMenu( Menu menu )
     {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate( R.menu.widget1, menu );
+        getMenuInflater().inflate( R.menu.widget1,menu );
         return true;
     }
 

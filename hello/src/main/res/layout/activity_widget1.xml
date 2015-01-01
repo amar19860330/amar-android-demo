@@ -121,5 +121,10 @@
         android:text="图片列表"
         android:id="@+id/button15"
         android:onClick="gotoImageList"/>
-
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="模糊"
+        android:id="@+id/button16"
+        android:onClick="gotoBlur"/>
 </GridLayout>
