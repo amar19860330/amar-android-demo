@@ -21,6 +21,8 @@ import android.widget.Toast;
 import android.app.ProgressDialog;
 
 import com.amar.hello2.tools.ShortcutUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class MainActivity extends BaseActivity
 {
@@ -440,6 +442,8 @@ public class MainActivity extends BaseActivity
     @Override
     protected void onCreate( Bundle savedInstanceState )
     {
+        Logger LOG = LoggerFactory.getLogger(MainActivity.class);
+        LOG.info("hello world我是我哦");
         Log.i( this.getClass().getName(), "in onCreate" );
 
         super.onCreate( savedInstanceState );
