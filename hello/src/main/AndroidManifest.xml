@@ -221,9 +221,14 @@
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:exported="true"
             android:name=".BlurActivity_"
+            android:exported="true"
             android:label="@string/title_activity_blur" >
+        </activity>
+        <activity
+            android:name=".EmbedExpandListViewActivity_"
+            android:exported="true"
+            android:label="@string/title_activity_embed_expand_list_view" >
         </activity>
     </application>
 

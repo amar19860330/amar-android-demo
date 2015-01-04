@@ -127,4 +127,11 @@
         android:text="模糊"
         android:id="@+id/button16"
         android:onClick="gotoBlur"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="嵌套扩展视图"
+        android:id="@+id/button17"
+        android:onClick="gotoExpandListView"/>
 </GridLayout>

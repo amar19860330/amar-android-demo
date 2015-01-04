@@ -92,7 +92,7 @@ public class SubWidget2Activity extends BaseActivity implements AdapterView.OnIt
             @Override
             public void onClick( View v )
             {
-                int radius = 100;
+                int radius = 24;
                 if ( changed )
                 {
                     changeTxt.setText( "正在还原..." );
@@ -112,20 +112,27 @@ public class SubWidget2Activity extends BaseActivity implements AdapterView.OnIt
                         BitmapFactory.Options options = new BitmapFactory.Options();
                         options.inSampleSize = 2;
                         Bitmap image = BitmapFactory.decodeResource( getResources(),R.drawable.wall026,options );
-                        final Bitmap newImg = Blur.fastblur( SubWidget2Activity.this,image,_radius );
-
-                        runOnUiThread( new Runnable()
+                        try
                         {
-                            @Override
-                            public void run()
+                            final Bitmap newImg = Blur.fastblur( SubWidget2Activity.this,image,_radius );
+
+                            runOnUiThread( new Runnable()
                             {
-                                imgView.setImageBitmap( newImg );
+                                @Override
+                                public void run()
+                                {
+                                    imgView.setImageBitmap( newImg );
 
-                                setProgressBarIndeterminateVisibility( false );
+                                    setProgressBarIndeterminateVisibility( false );
 
-                                changeTxt.setText( "收工" );
-                            }
-                        } );
+                                    changeTxt.setText( "收工" );
+                                }
+                            } );
+                        }
+                        catch ( Exception e )
+                        {
+                            e.printStackTrace();
+                        }
                     }
                 } ).start();
             }

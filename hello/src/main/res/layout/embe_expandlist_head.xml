@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="#1586FF"
+    android:paddingTop="5dp"
+    android:paddingLeft="5dp"
+    android:paddingBottom="5dp"
+    android:paddingRight="5dp">
+    
+<TextView
+    android:id="@+id/param1"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="118"
+    android:textColor="@android:color/white"
+    android:textSize="36sp"/>
+
+    <TextView
+        android:layout_marginLeft="5dp"
+        android:id="@+id/param2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/white"
+        android:textSize="14sp"
+        android:text="场比赛"
+        android:layout_toRightOf="@+id/param1"
+        android:layout_alignTop="@+id/param1"/>
+    <TextView
+        android:layout_marginLeft="5dp"
+        android:id="@+id/param3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/white"
+        android:textSize="14sp"
+        android:text="今天"
+        android:layout_toRightOf="@+id/param1"
+        android:layout_alignBottom="@+id/param1"/>
+
+    <TextView
+        android:id="@+id/param4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/white"
+        android:textSize="36sp"
+        android:layout_toLeftOf="@+id/indicator"
+        android:text="滚动"/>
+    <TextView
+        android:id="@+id/indicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:drawableRight="@drawable/expandlist"/>
+
+</RelativeLayout>

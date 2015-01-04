@@ -15,7 +15,11 @@ public class Widget1Activity extends BaseActivity
         super.onCreate( savedInstanceState );
         setContentView( R.layout.activity_widget1 );
     }
-
+    public void gotoExpandListView( View view )
+    {
+        Intent intent = new Intent( this, EmbedExpandListViewActivity_.class );
+        startActivity( intent );
+    }
     public void gotoBlur( View view )
     {
         Intent intent = new Intent( this, BlurActivity_.class );

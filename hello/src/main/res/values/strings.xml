@@ -41,5 +41,6 @@
     <string name="title_activity_share_app">ShareAppActivity</string>
     <string name="title_activity_list_image">ListImageActivity</string>
     <string name="title_activity_blur">BlurActivity</string>
+    <string name="title_activity_embed_expand_list_view">EmbedExpandListViewActivity</string>
 
 </resources>
