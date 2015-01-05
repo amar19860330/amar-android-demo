@@ -1,36 +1,24 @@
 package com.amar.hello2;
 
-import android.app.Activity;
-import android.content.Context;
-import android.graphics.Point;
-import android.os.Bundle;
-import android.util.Log;
-import android.view.Gravity;
-import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AbsListView;
-import android.widget.BaseExpandableListAdapter;
-import android.widget.ExpandableListAdapter;
 import android.widget.ExpandableListView;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
+
+import com.amar.hello2.expandlist.EmbedData;
 
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.ViewById;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import com.amar.hello2.expandlist.ExpandableListAdapter;
 
-@EActivity(resName = "activity_embed_expand_list_view")
-public class EmbedExpandListViewActivity extends BaseActivity
+@EActivity( resName = "activity_embed_expand_list_view" )
+public class EmbedExpandListViewActivity extends BaseActivity implements Serializable
 {
+    private static final long serialVersionUID = 2762018523406420889L;
 
-    @ViewById(resName = "expandablelist")
+    @ViewById( resName = "expandablelist" )
     ExpandableListView expandableListView;
 
     List<EmbedData> testDataList;
@@ -55,150 +43,8 @@ public class EmbedExpandListViewActivity extends BaseActivity
                 }
             }
         } );
-
         expandableListAdapter.setData( testDataList );
         expandableListView.setAdapter( expandableListAdapter );
-    }
-
-    public class ExpandableListAdapter extends BaseExpandableListAdapter
-    {
-        protected LayoutInflater inflater;
-        Context context;
-
-        private List<EmbedData> data;
-
-        public ExpandableListAdapter( Context context )
-        {
-            this.context = context;
-            this.inflater = LayoutInflater.from( context );
-        }
-
-        public void setData( List<EmbedData> data )
-        {
-            this.data = data;
-            this.notifyDataSetChanged();
-        }
-
-        //获取指定组位置、指定子列表项处的子列表项数据
-        @Override
-        public Object getChild( int groupPosition,int childPosition )
-        {
-            return data.get( groupPosition ).get( childPosition );
-        }
-
-        @Override
-        public long getChildId( int groupPosition,int childPosition )
-        {
-            return childPosition;
-        }
-
-        @Override
-        public int getChildrenCount( int groupPosition )
-        {
-            return data.get( groupPosition ).subData.size();
-        }
-
-        //该方法决定每个子选项的外观
-        @Override
-        public View getChildView( int groupPosition,int childPosition,boolean isLastChild,View convertView,ViewGroup parent )
-        {
-            View view = inflater.inflate( R.layout.embe_expandlist_subhead,null );
-            TextView info = ( TextView ) view.findViewById( R.id.param3 );
-            EmbedData currentData = ( EmbedData ) getChild( groupPosition,childPosition );
-            info.setText( currentData.name + ":" + currentData.id );
-
-            final ExpandableListAdapter expandableListAdapter = new ExpandableListAdapter( context );
-            expandableListView.setOnGroupExpandListener( new ExpandableListView.OnGroupExpandListener()
-            {
-                @Override
-                public void onGroupExpand( int groupPosition )
-                {
-                    for ( int i = 0 ; i < expandableListAdapter.getGroupCount() ; i++ )
-                    {
-                        if ( groupPosition != i )
-                        {
-                            expandableListView.collapseGroup( i );
-                        }
-                    }
-                }
-            } );
-
-            expandableListAdapter.setData( testDataList );
-            expandableListView.setAdapter( expandableListAdapter );
-
-            return view;
-        }
-
-        //该方法决定每个组选项的外观
-        @Override
-        public View getGroupView( int groupPosition,boolean isExpanded,View convertView,ViewGroup parent )
-        {
-            View view = inflater.inflate( R.layout.embe_expandlist_head,null );
-            TextView info = ( TextView ) view.findViewById( R.id.param3 );
-            EmbedData currentData = ( EmbedData ) getGroup( groupPosition );
-            info.setText( currentData.name + ":" + currentData.id );
-            return view;
-        }
-
-        //获取指定组位置处的组数据
-        @Override
-        public Object getGroup( int groupPosition )
-        {
-            return data.get( groupPosition );
-        }
-
-        @Override
-        public int getGroupCount()
-        {
-            return data.size();
-        }
-
-        @Override
-        public long getGroupId( int groupPosition )
-        {
-            return groupPosition;
-        }
-
-        @Override
-        public void onGroupExpanded( int groupPosition )
-        {
-
-        }
-
-        @Override
-        public boolean isChildSelectable( int groupPosition,int childPosition )
-        {
-            return true;
-        }
-
-        @Override
-        public boolean hasStableIds()
-        {
-            return true;
-        }
-    }
-
-    public class EmbedData
-    {
-        public String name;
-        public int id;
-        List<EmbedData> subData = new ArrayList<>();
-
-        public EmbedData( int id,String name )
-        {
-            this.name = name;
-            this.id = id;
-        }
-
-        public void add( EmbedData data )
-        {
-            subData.add( data );
-        }
-
-        public EmbedData get( int index )
-        {
-            return subData.get( index );
-        }
     }
 
     void initTestData()
