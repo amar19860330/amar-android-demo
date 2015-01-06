@@ -38,4 +38,9 @@
         <item name="android:layout_weight">1.0</item>
         <item name="android:background">@drawable/places_sub_title</item>
     </style>
+
+    <style name="my_dialog" >
+        <item name="android:windowEnterAnimation">@anim/dialog_in</item>
+        <item name="android:windowExitAnimation">@anim/dialog_exit</item>
+    </style>
 </resources>

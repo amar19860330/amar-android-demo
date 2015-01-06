@@ -1,5 +1,7 @@
 package com.amar.hello2.expandlist;
 
+import android.app.Activity;
+import android.app.FragmentTransaction;
 import android.content.Context;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -11,6 +13,7 @@ import android.widget.ExpandableListView;
 import android.widget.TextView;
 
 import com.amar.hello2.R;
+import com.amar.hello2.fragment.DemoFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,17 +24,24 @@ import java.util.List;
 public class SubExpandableListAdapter extends BaseExpandableListAdapter implements ExpandableListView.OnChildClickListener
 {
     protected LayoutInflater inflater;
-    protected Context context;
+    protected Activity context;
     protected EmbedData data;
 
     @Override
     public boolean onChildClick( ExpandableListView parent,View v,int groupPosition,int childPosition,long id )
     {
         Log.d( "SubExpandableListAdapter","onChildClick" + groupPosition + ":" + childPosition );
+
+        FragmentTransaction ft = context.getFragmentManager().beginTransaction();
+        ft.setTransition( FragmentTransaction.TRANSIT_FRAGMENT_FADE );
+        DemoFragment gameMenuFragment = new DemoFragment();
+        ft.add( gameMenuFragment, "aa" );
+        ft.commitAllowingStateLoss();
+
         return false;
     }
 
-    public SubExpandableListAdapter( Context context )
+    public SubExpandableListAdapter( Activity context )
     {
         this.context = context;
         this.inflater = LayoutInflater.from( context );

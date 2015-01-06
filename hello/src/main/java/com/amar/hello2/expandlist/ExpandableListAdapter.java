@@ -1,5 +1,6 @@
 package com.amar.hello2.expandlist;
 
+import android.app.Activity;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,10 +20,10 @@ import java.util.List;
 public class ExpandableListAdapter extends BaseExpandableListAdapter
 {
     protected LayoutInflater inflater;
-    protected Context context;
+    protected Activity context;
     protected List<EmbedData> data;
 
-    public ExpandableListAdapter( Context context )
+    public ExpandableListAdapter( Activity context )
     {
         this.context = context;
         this.inflater = LayoutInflater.from( context );
