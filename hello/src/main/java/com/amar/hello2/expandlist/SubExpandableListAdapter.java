@@ -1,11 +1,13 @@
 package com.amar.hello2.expandlist;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.BaseExpandableListAdapter;
+import android.widget.ExpandableListView;
 import android.widget.TextView;
 
 import com.amar.hello2.R;
@@ -16,16 +18,17 @@ import java.util.List;
 /**
  * Created by SAM on 2015/1/5.
  */
-public class SubExpandableListAdapter extends BaseExpandableListAdapter implements AdapterView.OnItemClickListener
+public class SubExpandableListAdapter extends BaseExpandableListAdapter implements ExpandableListView.OnChildClickListener
 {
     protected LayoutInflater inflater;
     protected Context context;
     protected EmbedData data;
 
     @Override
-    public void onItemClick( AdapterView<?> parent,View view,int position,long id )
+    public boolean onChildClick( ExpandableListView parent,View v,int groupPosition,int childPosition,long id )
     {
-
+        Log.d( "SubExpandableListAdapter","onChildClick" + groupPosition + ":" + childPosition );
+        return false;
     }
 
     public SubExpandableListAdapter( Context context )
@@ -90,8 +93,8 @@ public class SubExpandableListAdapter extends BaseExpandableListAdapter implemen
     @Override
     public int getChildrenCount( int groupPosition )
     {
-        // return data.subData.size();
-        return data == null ? 0 : ( data.subData == null ? 0 : 1 );//只显示一个Child，否则会造成的重复显示
+        return data.subData.size();
+        //return data == null ? 0 : ( data.subData == null ? 0 : 1 );//只显示一个Child，否则会造成的重复显示
     }
 
     //获取指定组位置处的组数据

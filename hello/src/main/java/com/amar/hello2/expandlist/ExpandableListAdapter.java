@@ -38,6 +38,8 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter
         subExpandableListAdapter.setData( currentData );
         custExpListview.setAdapter( subExpandableListAdapter );
         custExpListview.setGroupIndicator( null );
+        //custExpListview.setOnItemClickListener( subExpandableListAdapter );
+        custExpListview.setOnChildClickListener( subExpandableListAdapter );
         return custExpListview;
     }
 

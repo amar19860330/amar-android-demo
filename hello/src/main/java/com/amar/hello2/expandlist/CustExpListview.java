@@ -16,7 +16,7 @@ public class CustExpListview extends ExpandableListView
 
     protected void onMeasure( int widthMeasureSpec,int heightMeasureSpec )
     {
-        widthMeasureSpec = View.MeasureSpec.makeMeasureSpec( 960,View.MeasureSpec.AT_MOST );
+        //widthMeasureSpec = View.MeasureSpec.makeMeasureSpec( 960,View.MeasureSpec.AT_MOST );
         heightMeasureSpec = View.MeasureSpec.makeMeasureSpec( 600,View.MeasureSpec.AT_MOST );
         super.onMeasure( widthMeasureSpec,heightMeasureSpec );
     }
