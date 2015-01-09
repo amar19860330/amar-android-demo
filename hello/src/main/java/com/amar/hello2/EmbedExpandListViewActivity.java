@@ -2,6 +2,7 @@ package com.amar.hello2;
 
 import android.widget.ExpandableListView;
 
+import com.amar.hello2.expandlist.CustExpListview;
 import com.amar.hello2.expandlist.EmbedData;
 
 import org.androidannotations.annotations.AfterViews;
@@ -11,15 +12,16 @@ import org.androidannotations.annotations.ViewById;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+
 import com.amar.hello2.expandlist.ExpandableListAdapter;
 
-@EActivity( resName = "activity_embed_expand_list_view" )
+@EActivity(resName = "activity_embed_expand_list_view")
 public class EmbedExpandListViewActivity extends BaseActivity implements Serializable
 {
     private static final long serialVersionUID = 2762018523406420889L;
 
-    @ViewById( resName = "expandablelist" )
-    ExpandableListView expandableListView;
+    @ViewById(resName = "expandablelist")
+    CustExpListview expandableListView;
 
     List<EmbedData> testDataList;
 
@@ -28,7 +30,8 @@ public class EmbedExpandListViewActivity extends BaseActivity implements Seriali
     {
         initTestData();
 
-        final ExpandableListAdapter expandableListAdapter = new ExpandableListAdapter( this );
+        final ExpandableListAdapter expandableListAdapter = new ExpandableListAdapter( this,expandableListView );
+
         expandableListView.setOnGroupExpandListener( new ExpandableListView.OnGroupExpandListener()
         {
             @Override
@@ -38,7 +41,7 @@ public class EmbedExpandListViewActivity extends BaseActivity implements Seriali
                 {
                     if ( groupPosition != i )
                     {
-                        expandableListView.collapseGroup( i );
+                        //expandableListView.collapseGroup( i );
                     }
                 }
             }
@@ -46,6 +49,7 @@ public class EmbedExpandListViewActivity extends BaseActivity implements Seriali
         expandableListAdapter.setData( testDataList );
         expandableListView.setAdapter( expandableListAdapter );
     }
+
 
     void initTestData()
     {
@@ -69,6 +73,8 @@ public class EmbedExpandListViewActivity extends BaseActivity implements Seriali
         EmbedData data13 = new EmbedData( 13,"data13" );
         EmbedData data14 = new EmbedData( 14,"data14" );
         EmbedData data15 = new EmbedData( 15,"data15" );
+        EmbedData data16 = new EmbedData( 16,"data16" );
+        EmbedData data17 = new EmbedData( 17,"data17" );
 
         dataA.add( data1 );
         dataA.add( data2 );
@@ -91,6 +97,8 @@ public class EmbedExpandListViewActivity extends BaseActivity implements Seriali
         data2.add( data14 );
 
         data4.add( data15 );
+        data5.add( data16 );
+        data5.add( data17 );
 
         testDataList = new ArrayList<>();
 

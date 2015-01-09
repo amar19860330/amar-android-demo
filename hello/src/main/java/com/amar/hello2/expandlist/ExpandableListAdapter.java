@@ -12,6 +12,8 @@ import android.widget.TextView;
 import com.amar.hello2.EmbedExpandListViewActivity;
 import com.amar.hello2.R;
 
+import org.androidannotations.annotations.UiThread;
+
 import java.util.List;
 
 /**
@@ -22,11 +24,13 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter
     protected LayoutInflater inflater;
     protected Activity context;
     protected List<EmbedData> data;
+    protected ExpandableListView expandableList;
 
-    public ExpandableListAdapter( Activity context )
+    public ExpandableListAdapter( Activity context,ExpandableListView expandableList )
     {
         this.context = context;
         this.inflater = LayoutInflater.from( context );
+        this.expandableList = expandableList;
     }
 
     //该方法决定每个子选项的外观
@@ -35,11 +39,10 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter
     {
         EmbedData currentData = ( EmbedData ) getChild( groupPosition,childPosition );
         CustExpListview custExpListview = new CustExpListview( context );
-        SubExpandableListAdapter subExpandableListAdapter = new SubExpandableListAdapter( context );
+        SubExpandableListAdapter subExpandableListAdapter = new SubExpandableListAdapter( context,custExpListview );
         subExpandableListAdapter.setData( currentData );
         custExpListview.setAdapter( subExpandableListAdapter );
         custExpListview.setGroupIndicator( null );
-        //custExpListview.setOnItemClickListener( subExpandableListAdapter );
         custExpListview.setOnChildClickListener( subExpandableListAdapter );
         return custExpListview;
     }
@@ -52,13 +55,55 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter
         TextView info = ( TextView ) view.findViewById( R.id.param3 );
         EmbedData currentData = ( EmbedData ) getGroup( groupPosition );
         info.setText( currentData.name + ":" + currentData.id );
+
         return view;
     }
 
     public void setData( List<EmbedData> data )
     {
-        this.data = data;
-        this.notifyDataSetChanged();
+        if ( data != this.data )
+        {
+            this.data = data;
+            this.notifyDataSetChanged();
+            change();
+        }
+    }
+
+    @Override
+    public void notifyDataSetChanged()
+    {
+        super.notifyDataSetChanged();
+    }
+
+    public void change()
+    {
+        new Thread( new Runnable()
+        {
+            @Override
+            public void run()
+            {
+                try
+                {
+                    Thread.sleep( 1000 );
+                }
+                catch ( InterruptedException e )
+                {
+                    e.printStackTrace();
+                }
+                context.runOnUiThread( new Runnable()
+                {
+                    @Override
+                    public void run()
+                    {
+                        int length = expandableList.getCount();
+                        for ( int i = 0 ; i < length ; i++ )
+                        {
+                            expandableList.expandGroup( i );
+                        }
+                    }
+                } );
+            }
+        } ).start();
     }
 
     //获取指定组位置、指定子列表项处的子列表项数据

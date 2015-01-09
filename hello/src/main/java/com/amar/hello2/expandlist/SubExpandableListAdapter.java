@@ -26,6 +26,7 @@ public class SubExpandableListAdapter extends BaseExpandableListAdapter implemen
     protected LayoutInflater inflater;
     protected Activity context;
     protected EmbedData data;
+    protected ExpandableListView expandableList;
 
     @Override
     public boolean onChildClick( ExpandableListView parent,View v,int groupPosition,int childPosition,long id )
@@ -35,16 +36,17 @@ public class SubExpandableListAdapter extends BaseExpandableListAdapter implemen
         FragmentTransaction ft = context.getFragmentManager().beginTransaction();
         ft.setTransition( FragmentTransaction.TRANSIT_FRAGMENT_FADE );
         DemoFragment gameMenuFragment = new DemoFragment();
-        ft.add( gameMenuFragment, "aa" );
+        ft.add( gameMenuFragment,"aa" );
         ft.commitAllowingStateLoss();
 
         return false;
     }
 
-    public SubExpandableListAdapter( Activity context )
+    public SubExpandableListAdapter( Activity context,ExpandableListView expandableList )
     {
         this.context = context;
         this.inflater = LayoutInflater.from( context );
+        this.expandableList = expandableList;
     }
 
     @Override
@@ -83,8 +85,43 @@ public class SubExpandableListAdapter extends BaseExpandableListAdapter implemen
 
     public void setData( EmbedData data )
     {
-        this.data = data;
-        this.notifyDataSetChanged();
+        if ( data != this.data )
+        {
+            this.data = data;
+            this.notifyDataSetChanged();
+            //change();
+        }
+    }
+
+    public void change()
+    {
+        new Thread( new Runnable()
+        {
+            @Override
+            public void run()
+            {
+                try
+                {
+                    Thread.sleep( 1000 );
+                }
+                catch ( InterruptedException e )
+                {
+                    e.printStackTrace();
+                }
+                context.runOnUiThread( new Runnable()
+                {
+                    @Override
+                    public void run()
+                    {
+                        int length = expandableList.getCount();
+                        for ( int i = 0 ; i < length ; i++ )
+                        {
+                            expandableList.expandGroup( i );
+                        }
+                    }
+                } );
+            }
+        } ).start();
     }
 
     //获取指定组位置、指定子列表项处的子列表项数据

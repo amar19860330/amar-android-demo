@@ -11,4 +11,5 @@
     <color name="strokecolor">#ffacacac</color>
 
     <color name="top_bar_background">#ff3883cc</color>
+    <color name="translucent_background">#00000000</color>
 </resources>

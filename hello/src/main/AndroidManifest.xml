@@ -228,6 +228,7 @@
         <activity
             android:name=".EmbedExpandListViewActivity_"
             android:exported="true"
+            android:theme="@android:style/Theme.Black.NoTitleBar"
             android:label="@string/title_activity_embed_expand_list_view" >
         </activity>
     </application>
