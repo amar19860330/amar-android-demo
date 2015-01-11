@@ -2,24 +2,23 @@ package com.amar.hello2.expandlist;
 
 import android.app.Activity;
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.ExpandableListView;
 import android.widget.TextView;
 
-import com.amar.hello2.EmbedExpandListViewActivity;
 import com.amar.hello2.R;
-
-import org.androidannotations.annotations.UiThread;
 
 import java.util.List;
 
 /**
  * Created by SAM on 2015/1/5.
  */
-public class ExpandableListAdapter extends BaseExpandableListAdapter
+public class ExpandableListAdapter extends BaseExpandableListAdapter implements ExpandableListView.OnChildClickListener
 {
     protected LayoutInflater inflater;
     protected Activity context;
@@ -33,17 +32,36 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter
         this.expandableList = expandableList;
     }
 
+    int _groupPosition;
+    int _childPosition;
+
+    @Override
+    public boolean onChildClick( ExpandableListView parent,View v,int groupPosition,int childPosition,long id )
+    {
+        this._groupPosition = groupPosition;
+        this._childPosition = childPosition;
+        return false;
+    }
+
     //该方法决定每个子选项的外观
     @Override
     public View getChildView( int groupPosition,int childPosition,boolean isLastChild,View convertView,ViewGroup parent )
     {
         EmbedData currentData = ( EmbedData ) getChild( groupPosition,childPosition );
         CustExpListview custExpListview = new CustExpListview( context );
+
         SubExpandableListAdapter subExpandableListAdapter = new SubExpandableListAdapter( context,custExpListview );
         subExpandableListAdapter.setData( currentData );
         custExpListview.setAdapter( subExpandableListAdapter );
         custExpListview.setGroupIndicator( null );
         custExpListview.setOnChildClickListener( subExpandableListAdapter );
+
+        int length = currentData.subData.size();
+        for ( int i = 0 ; i < length ; i++ )
+        {
+            custExpListview.expandGroup( i );
+        }
+
         return custExpListview;
     }
 
@@ -61,12 +79,9 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter
 
     public void setData( List<EmbedData> data )
     {
-        if ( data != this.data )
-        {
-            this.data = data;
-            this.notifyDataSetChanged();
-            change();
-        }
+        this.data = data;
+        this.notifyDataSetChanged();
+        //change();
     }
 
     @Override
@@ -77,33 +92,32 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter
 
     public void change()
     {
-        new Thread( new Runnable()
+
+
+        int length = expandableList.getCount();
+        for ( int i = 0 ; i < length ; i++ )
         {
-            @Override
-            public void run()
-            {
-                try
-                {
-                    Thread.sleep( 1000 );
-                }
-                catch ( InterruptedException e )
-                {
-                    e.printStackTrace();
-                }
-                context.runOnUiThread( new Runnable()
-                {
-                    @Override
-                    public void run()
-                    {
-                        int length = expandableList.getCount();
-                        for ( int i = 0 ; i < length ; i++ )
-                        {
-                            expandableList.expandGroup( i );
-                        }
-                    }
-                } );
-            }
-        } ).start();
+            expandableList.expandGroup( i );
+        }
+        //        new Thread( new Runnable()
+        //        {
+        //            @Override
+        //            public void run()
+        //            {
+        //                context.runOnUiThread( new Runnable()
+        //                {
+        //                    @Override
+        //                    public void run()
+        //                    {
+        //                        int length = expandableList.getCount();
+        //                        for ( int i = 0 ; i < length ; i++ )
+        //                        {
+        //                            expandableList.expandGroup( i );
+        //                        }
+        //                    }
+        //                } );
+        //            }
+        //        } ).start();
     }
 
     //获取指定组位置、指定子列表项处的子列表项数据

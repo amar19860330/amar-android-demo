@@ -85,12 +85,8 @@ public class SubExpandableListAdapter extends BaseExpandableListAdapter implemen
 
     public void setData( EmbedData data )
     {
-        if ( data != this.data )
-        {
-            this.data = data;
-            this.notifyDataSetChanged();
-            //change();
-        }
+        this.data = data;
+        this.notifyDataSetChanged();
     }
 
     public void change()

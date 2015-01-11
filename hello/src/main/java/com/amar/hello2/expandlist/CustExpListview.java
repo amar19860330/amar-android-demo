@@ -26,6 +26,8 @@ public class CustExpListview extends ExpandableListView
         super( context,attrs,defStyleAttr );
     }
 
+    public int indexA = -1;
+    public int indexB = -1;
     protected void onMeasure( int widthMeasureSpec,int heightMeasureSpec )
     {
        // DisplayMetrics dm = new DisplayMetrics();

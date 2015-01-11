@@ -15,12 +15,12 @@ import java.util.List;
 
 import com.amar.hello2.expandlist.ExpandableListAdapter;
 
-@EActivity(resName = "activity_embed_expand_list_view")
+@EActivity( resName = "activity_embed_expand_list_view" )
 public class EmbedExpandListViewActivity extends BaseActivity implements Serializable
 {
     private static final long serialVersionUID = 2762018523406420889L;
 
-    @ViewById(resName = "expandablelist")
+    @ViewById( resName = "expandablelist" )
     CustExpListview expandableListView;
 
     List<EmbedData> testDataList;
@@ -47,6 +47,7 @@ public class EmbedExpandListViewActivity extends BaseActivity implements Seriali
             }
         } );
         expandableListAdapter.setData( testDataList );
+        expandableListView.setOnChildClickListener( expandableListAdapter );
         expandableListView.setAdapter( expandableListAdapter );
     }
 
