@@ -15,6 +15,13 @@ public class Widget1Activity extends BaseActivity
         super.onCreate( savedInstanceState );
         setContentView( R.layout.activity_widget1 );
     }
+
+    public void gotoExpandListView2(View view)
+    {
+        Intent intent = new Intent( this, ExpandableListView2Activity_.class );
+        startActivity( intent );
+    }
+
     public void gotoExpandListView( View view )
     {
         Intent intent = new Intent( this, EmbedExpandListViewActivity_.class );

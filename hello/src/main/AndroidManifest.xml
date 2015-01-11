@@ -228,8 +228,16 @@
         <activity
             android:name=".EmbedExpandListViewActivity_"
             android:exported="true"
-            android:theme="@android:style/Theme.Black.NoTitleBar"
-            android:label="@string/title_activity_embed_expand_list_view" >
+            android:label="@string/title_activity_embed_expand_list_view"
+            android:theme="@android:style/Theme.Black.NoTitleBar" >
+        </activity>
+        <activity
+            android:name=".ExpandableListView2Activity_"
+            android:label="@string/title_activity_expandable_list_view2" >
+        </activity>
+        <activity
+            android:name=".ExpandList3Activity_"
+            android:label="@string/title_activity_expand_list3" >
         </activity>
     </application>
 

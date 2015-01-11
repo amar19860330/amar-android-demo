@@ -43,5 +43,7 @@
     <string name="title_activity_blur">BlurActivity</string>
     <string name="title_activity_embed_expand_list_view">EmbedExpandListViewActivity</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_expandable_list_view2">ExpandableListView2Activity</string>
+    <string name="title_activity_expand_list3">ExpandList3Activity</string>
 
 </resources>
