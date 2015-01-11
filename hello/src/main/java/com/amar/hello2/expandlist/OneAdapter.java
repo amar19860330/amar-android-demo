@@ -1,16 +1,19 @@
 package com.amar.hello2.expandlist;
 
+import android.app.Activity;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ExpandableListView;
 import android.widget.SectionIndexer;
 import android.widget.TextView;
 
 import com.amar.hello2.R;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import se.emilsjolander.stickylistheaders.StickyListHeadersAdapter;
 
@@ -19,19 +22,20 @@ import se.emilsjolander.stickylistheaders.StickyListHeadersAdapter;
  */
 public class OneAdapter extends BaseAdapter implements StickyListHeadersAdapter, SectionIndexer
 {
-    private final Context mContext;
+    private final Activity mContext;
     private String[] mCountries;
     private int[] mSectionIndices;
     private Character[] mSectionLetters;
     private LayoutInflater mInflater;
 
-    public OneAdapter( Context context )
+    public OneAdapter( Activity context )
     {
         mContext = context;
         mInflater = LayoutInflater.from( context );
         mCountries = context.getResources().getStringArray( R.array.mycountries );
         mSectionIndices = getSectionIndices();
         mSectionLetters = getSectionLetters();
+        initTestData();
     }
 
     private int[] getSectionIndices()
@@ -92,18 +96,27 @@ public class OneAdapter extends BaseAdapter implements StickyListHeadersAdapter,
         {
             holder = new ViewHolder();
             convertView = mInflater.inflate( R.layout.one_list_item_layout,parent,false );
-            holder.text = ( TextView ) convertView.findViewById( R.id.text );
+
+            holder.sublist = ( CustExpListview ) convertView.findViewById( R.id.sublist );
             convertView.setTag( holder );
         }
         else
         {
             holder = ( ViewHolder ) convertView.getTag();
         }
+        //holder.sublist.setText( mCountries[ position ] );
+        //        SubExpandableListAdapter subExpandableListAdapter = new SubExpandableListAdapter( mContext );
+        //        initTestData();
+        //        subExpandableListAdapter.setData( testDataList.get( 0 ) );
 
-        holder.text.setText( mCountries[ position ] );
+        SubExpandableListAdapter subExpandableListAdapter = new SubExpandableListAdapter( mContext );
+
+        holder.sublist.setAdapter( subExpandableListAdapter );
+        subExpandableListAdapter.setData( testDataList.get( 0 ) );
 
         return convertView;
     }
+
 
     @Override
     public View getHeaderView( int position,View convertView,ViewGroup parent )
@@ -202,6 +215,67 @@ public class OneAdapter extends BaseAdapter implements StickyListHeadersAdapter,
 
     class ViewHolder
     {
-        TextView text;
+        //TextView text;
+        CustExpListview sublist;
     }
+
+    List<EmbedData> testDataList = new ArrayList<>();
+
+    void initTestData()
+    {
+        EmbedData dataA = new EmbedData( -1,"dataA" );
+        EmbedData dataB = new EmbedData( -2,"dataB" );
+        EmbedData dataC = new EmbedData( -3,"dataC" );
+        EmbedData dataD = new EmbedData( -4,"dataD" );
+
+        EmbedData data1 = new EmbedData( 1,"data1" );
+        EmbedData data2 = new EmbedData( 2,"data2" );
+        EmbedData data3 = new EmbedData( 3,"data3" );
+        EmbedData data4 = new EmbedData( 4,"data4" );
+        EmbedData data5 = new EmbedData( 5,"data5" );
+        EmbedData data6 = new EmbedData( 6,"data6" );
+        EmbedData data7 = new EmbedData( 7,"data7" );
+        EmbedData data8 = new EmbedData( 8,"data8" );
+        EmbedData data9 = new EmbedData( 9,"data9" );
+        EmbedData data10 = new EmbedData( 10,"data10" );
+        EmbedData data11 = new EmbedData( 11,"data11" );
+        EmbedData data12 = new EmbedData( 12,"data12" );
+        EmbedData data13 = new EmbedData( 13,"data13" );
+        EmbedData data14 = new EmbedData( 14,"data14" );
+        EmbedData data15 = new EmbedData( 15,"data15" );
+        EmbedData data16 = new EmbedData( 16,"data16" );
+        EmbedData data17 = new EmbedData( 17,"data17" );
+
+        dataA.add( data1 );
+        dataA.add( data2 );
+        dataA.add( data3 );
+
+        dataB.add( data4 );
+        dataB.add( data5 );
+
+        dataC.add( data6 );
+        dataC.add( data7 );
+        dataC.add( data8 );
+
+        dataD.add( data9 );
+
+        data1.add( data10 );
+        data1.add( data11 );
+        data1.add( data12 );
+
+        data2.add( data13 );
+        data2.add( data14 );
+
+        data4.add( data15 );
+        data5.add( data16 );
+        data5.add( data17 );
+
+        testDataList = new ArrayList<>();
+
+        testDataList.add( dataA );
+        testDataList.add( dataB );
+        testDataList.add( dataC );
+        testDataList.add( dataD );
+    }
+
 }

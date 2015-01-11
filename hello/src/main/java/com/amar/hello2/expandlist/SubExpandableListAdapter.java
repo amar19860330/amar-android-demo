@@ -49,6 +49,12 @@ public class SubExpandableListAdapter extends BaseExpandableListAdapter implemen
         this.expandableList = expandableList;
     }
 
+    public SubExpandableListAdapter( Activity _contex )
+    {
+        this.context = _contex;
+        this.inflater = LayoutInflater.from( context );
+    }
+
     @Override
     public View getChildView( int groupPosition,int childPosition,boolean isLastChild,View convertView,ViewGroup parent )
     {
@@ -73,14 +79,37 @@ public class SubExpandableListAdapter extends BaseExpandableListAdapter implemen
     @Override
     public View getGroupView( int groupPosition,boolean isExpanded,View convertView,ViewGroup parent )
     {
-        View view = inflater.inflate( R.layout.embe_expandlist_item,null );
-        TextView info = ( TextView ) view.findViewById( R.id.param3 );
+        //        View view = inflater.inflate( R.layout.embe_expandlist_item,null );
+        //        TextView info = ( TextView ) view.findViewById( R.id.param3 );
+        //        EmbedData currentData = ( EmbedData ) getGroup( groupPosition );
+        //        if ( currentData != null )
+        //        {
+        //            info.setText( currentData.name + ":" + currentData.id );
+        //        }
+        //        return view;
+
+        ViewHolder holder;
         EmbedData currentData = ( EmbedData ) getGroup( groupPosition );
-        if ( currentData != null )
+        if ( convertView == null )
         {
-            info.setText( currentData.name + ":" + currentData.id );
+            holder = new ViewHolder();
+            convertView = inflater.inflate( R.layout.embe_expandlist_item,null );
+
+            holder.info = ( TextView ) convertView.findViewById( R.id.param3 );
+            convertView.setTag( holder );
         }
-        return view;
+        else
+        {
+            holder = ( ViewHolder ) convertView.getTag();
+        }
+        holder.info.setText( currentData.name + ":" + currentData.id );
+
+        return convertView;
+    }
+
+    public class ViewHolder
+    {
+        TextView info;
     }
 
     public void setData( EmbedData data )
@@ -91,6 +120,10 @@ public class SubExpandableListAdapter extends BaseExpandableListAdapter implemen
 
     public void change()
     {
+        if ( expandableList == null )
+        {
+            return;
+        }
         new Thread( new Runnable()
         {
             @Override

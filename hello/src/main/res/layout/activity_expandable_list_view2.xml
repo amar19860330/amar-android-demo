@@ -9,28 +9,28 @@
                 tools:context="com.amar.hello2.ExpandableListView2Activity">
 
 
-    <com.amar.hello2.expandlist.StickyLayout
-        android:id="@+id/sticky_layout"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="0dp"
-        android:orientation="vertical" >
+    <!--<com.amar.hello2.expandlist.StickyLayout-->
+        <!--android:id="@+id/sticky_layout"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:layout_marginTop="0dp"-->
+        <!--android:orientation="vertical" >-->
 
-        <LinearLayout
-            android:id="@+id/sticky_header"
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:gravity="center"
-            android:background="#78A524"
-            android:orientation="vertical" >
+        <!--<LinearLayout-->
+            <!--android:id="@+id/sticky_header"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="100dp"-->
+            <!--android:gravity="center"-->
+            <!--android:background="#78A524"-->
+            <!--android:orientation="vertical" >-->
 
-            <ImageView
-                android:id="@+id/imageView1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_launcher" />
+            <!--<ImageView-->
+                <!--android:id="@+id/imageView1"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:src="@drawable/ic_launcher" />-->
 
-        </LinearLayout>
+        <!--</LinearLayout>-->
 
         <LinearLayout
             android:id="@+id/sticky_content"
@@ -50,6 +50,6 @@
                 android:scrollbarAlwaysDrawHorizontalTrack="false" >
             </com.amar.hello2.expandlist.PinnedHeaderExpandableListView>
         </LinearLayout>
-    </com.amar.hello2.expandlist.StickyLayout>
+    <!--</com.amar.hello2.expandlist.StickyLayout>-->
 
 </RelativeLayout>

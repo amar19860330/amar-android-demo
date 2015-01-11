@@ -48,7 +48,7 @@ public class ExpandList3Activity extends Activity
             }
         } );
     }
-    WeakHashMap<View, Integer> mOriginalViewHeightPool = new WeakHashMap<View, Integer>();
+    WeakHashMap<View, Integer> mOriginalViewHeightPool = new WeakHashMap<>();
     class AnimationExecutor implements ExpandableStickyListHeadersListView.IAnimationExecutor
     {
 
@@ -72,7 +72,7 @@ public class ExpandList3Activity extends Activity
             float animEndY = animType == ExpandableStickyListHeadersListView.ANIMATION_EXPAND ? viewHeight : 0f;
             final ViewGroup.LayoutParams lp = target.getLayoutParams();
             ValueAnimator animator = ValueAnimator.ofFloat( animStartY,animEndY );
-            animator.setDuration( 200 );
+            animator.setDuration( 400 );
             target.setVisibility( View.VISIBLE );
             animator.addListener( new Animator.AnimatorListener()
             {

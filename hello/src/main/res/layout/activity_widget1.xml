@@ -1,14 +1,14 @@
 <GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:rowCount="5"
-    android:columnCount="3"
-    tools:context="com.amar.hello2.Widget1Activity">
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin"
+            android:paddingTop="@dimen/activity_vertical_margin"
+            android:paddingBottom="@dimen/activity_vertical_margin"
+            android:rowCount="5"
+            android:columnCount="3"
+            tools:context="com.amar.hello2.Widget1Activity">
 
     <Button
         android:layout_width="wrap_content"
@@ -36,12 +36,14 @@
         android:text="常用组件1"
         android:id="@+id/button1"
         android:onClick="onclickSubWiget1"/>
+
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="常用组件2"
         android:id="@+id/button2"
         android:onClick="onclickSubWiget2"/>
+
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -55,78 +57,83 @@
         android:text="网络下载"
         android:id="@+id/button4"
         android:onClick="onclickInternetDown"/>
+
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="注解Activity"
         android:id="@+id/button5"
         android:onClick="gotoAntotationView"/>
+
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="拖动效果"
         android:id="@+id/button6"
         android:onClick="gotoPageDragDropView"/>
+
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="获取网络"
         android:id="@+id/button7"
         android:onClick="gotoRxView"/>
+
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="子展开视图"
         android:id="@+id/button8"
         android:onClick="gotoSubPageView"/>
+
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="页视图"
         android:id="@+id/button9"
         android:onClick="gotoPageView"/>
+
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="水平滚动视图"
         android:id="@+id/button10"
         android:onClick="gotoHSrcollView"/>
+
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="单选滚动视图"
         android:id="@+id/button11"
         android:onClick="gotoRadioSrcollView"/>
+
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="服务"
         android:id="@+id/button12"
         android:onClick="gotoService"/>
+
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="抽屉"
         android:id="@+id/button13"
         android:onClick="gotoDrawer"/>
+
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="分享"
         android:id="@+id/button14"
         android:onClick="gotoShare"/>
+
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="图片列表"
         android:id="@+id/button15"
         android:onClick="gotoImageList"/>
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="模糊"
-        android:id="@+id/button16"
-        android:onClick="gotoBlur"/>
 
     <Button
         android:layout_width="wrap_content"
@@ -134,10 +141,27 @@
         android:text="嵌套扩展视图"
         android:id="@+id/button17"
         android:onClick="gotoExpandListView"/>
+
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="嵌套扩展视图2"
         android:id="@+id/button18"
         android:onClick="gotoExpandListView2"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="嵌套扩展视图3"
+        android:id="@+id/button19"
+        android:onClick="gotoExpandListView3"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="模糊"
+        android:id="@+id/button16"
+        android:onClick="gotoBlur"/>
+
+
 </GridLayout>
