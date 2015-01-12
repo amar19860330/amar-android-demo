@@ -138,24 +138,36 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="嵌套扩展视图"
+        android:text="扩展视图1"
         android:id="@+id/button17"
         android:onClick="gotoExpandListView"/>
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="嵌套扩展视图2"
+        android:text="扩展视图2"
         android:id="@+id/button18"
         android:onClick="gotoExpandListView2"/>
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="嵌套扩展视图3"
+        android:text="扩展视图3"
         android:id="@+id/button19"
         android:onClick="gotoExpandListView3"/>
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="扩展视图4"
+        android:id="@+id/button20"
+        android:onClick="gotoExpandListView4"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="扩展视图5"
+        android:id="@+id/button21"
+        android:onClick="gotoExpandListView5"/>
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

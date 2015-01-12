@@ -284,12 +284,12 @@ public class ExpandableListView2Activity extends BaseActivity implements Expanda
             //SubExpandableListAdapter subExpandableListAdapter = new SubExpandableListAdapter( context );
 
             holder.sublist.setAdapter( holder.subExpandableListAdapter );
-            holder.subExpandableListAdapter.setData( testDataList.get( 1 ) );
+            holder.subExpandableListAdapter.setData( testDataList.get( 0 ) );
             int length = holder.sublist.getCount();
-            for ( int i = 0 ; i < length ; i++ )
-            {
-                holder.sublist.expandGroup( i );
-            }
+//            for ( int i = 0 ; i < length ; i++ )
+//            {
+//                holder.sublist.expandGroup( i );
+//            }
             return convertView;
         }
         //@Override

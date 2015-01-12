@@ -239,6 +239,15 @@
             android:name=".ExpandList3Activity_"
             android:label="@string/title_activity_expand_list3" >
         </activity>
+        <activity
+            android:name=".ExpandList4Activity_"
+            android:label="@string/title_activity_expand_list4" >
+        </activity>
+        <activity
+            android:exported="true"
+            android:name=".ExpandList5Activity_"
+            android:label="@string/title_activity_expand_list5" >
+        </activity>
     </application>
 
 </manifest>

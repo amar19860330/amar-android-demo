@@ -41,12 +41,15 @@ public class SubExpandableListAdapter extends BaseExpandableListAdapter implemen
 
         return false;
     }
-
+    ViewHolder tempHolder;
+    View tempConvertView;
     public SubExpandableListAdapter( Activity context,ExpandableListView expandableList )
     {
         this.context = context;
         this.inflater = LayoutInflater.from( context );
         this.expandableList = expandableList;
+        tempHolder = new ViewHolder();
+        tempConvertView = inflater.inflate( R.layout.embe_expandlist_item,null );
     }
 
     public SubExpandableListAdapter( Activity _contex )
@@ -55,46 +58,47 @@ public class SubExpandableListAdapter extends BaseExpandableListAdapter implemen
         this.inflater = LayoutInflater.from( context );
     }
 
+    public class ChildViewHoder
+    {
+        TextView info;
+
+    }
+
     @Override
     public View getChildView( int groupPosition,int childPosition,boolean isLastChild,View convertView,ViewGroup parent )
     {
-        View view = inflater.inflate( R.layout.embe_expandlist_subitem,null );
-        TextView info = ( TextView ) view.findViewById( R.id.param3 );
-        try
+        ChildViewHoder holder;
+        if ( convertView == null )
         {
-            EmbedData currentData = ( EmbedData ) getChild( groupPosition,childPosition );
-            if ( currentData != null )
-            {
-                info.setText( currentData.name + ":" + currentData.id );
-            }
+            holder = new ChildViewHoder();
+            convertView = inflater.inflate( R.layout.embe_expandlist_subitem,null );
+            holder.info = ( TextView ) convertView.findViewById( R.id.param3 );
+            convertView.setTag( holder );
         }
-        catch ( Exception e )
+        else
         {
-            e.printStackTrace();
+            holder = (ChildViewHoder)convertView.getTag();
         }
-        return view;
+
+        EmbedData currentData = ( EmbedData ) getChild( groupPosition,childPosition );
+        if ( currentData != null )
+        {
+            holder.info.setText( currentData.name + ":" + currentData.id );
+        }
+        return convertView;
     }
+
 
     //该方法决定每个组选项的外观
     @Override
     public View getGroupView( int groupPosition,boolean isExpanded,View convertView,ViewGroup parent )
     {
-        //        View view = inflater.inflate( R.layout.embe_expandlist_item,null );
-        //        TextView info = ( TextView ) view.findViewById( R.id.param3 );
-        //        EmbedData currentData = ( EmbedData ) getGroup( groupPosition );
-        //        if ( currentData != null )
-        //        {
-        //            info.setText( currentData.name + ":" + currentData.id );
-        //        }
-        //        return view;
-
         ViewHolder holder;
         EmbedData currentData = ( EmbedData ) getGroup( groupPosition );
         if ( convertView == null )
         {
             holder = new ViewHolder();
             convertView = inflater.inflate( R.layout.embe_expandlist_item,null );
-
             holder.info = ( TextView ) convertView.findViewById( R.id.param3 );
             convertView.setTag( holder );
         }
