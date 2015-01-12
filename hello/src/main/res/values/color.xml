@@ -12,4 +12,5 @@
 
     <color name="top_bar_background">#ff3883cc</color>
     <color name="translucent_background">#00000000</color>
+    <color name="holo_red_light_transparent">#aaff4444</color>
 </resources>

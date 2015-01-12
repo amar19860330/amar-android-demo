@@ -193,8 +193,10 @@ public class MainActivity extends BaseActivity
                     break;
                 case R.id.button4:
                     intent = new Intent();
-                    intent.setClass( MainActivity.this, ThirdActivity.class );
+                    //intent.setClass( MainActivity.this, ThirdActivity.class );
                     //startActivity( intent );
+                    String apkname = "com.libianc.android.ued";
+                    uninstallAPK( apkname );
                     break;
                 case R.id.button5:
                     intent = new Intent();
@@ -236,6 +238,16 @@ public class MainActivity extends BaseActivity
         }
     };
 
+    public void uninstallAPK(String packageName) {
+        // 通过程序的报名创建URI
+        Uri packageURI = Uri.parse("package:" + packageName);
+        // 创建Intent意图
+        Intent intent = new Intent(Intent.ACTION_DELETE);
+        intent.setData(packageURI);
+        // 执行卸载程序
+        startActivity(intent);
+
+    }
     public void onclickLayout( View view )
     {
         Intent intent = new Intent( this, MyLayoutActivity.class );

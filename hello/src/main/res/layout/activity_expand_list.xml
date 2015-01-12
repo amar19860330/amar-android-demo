@@ -1,0 +1,15 @@
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/white"
+                >
+    <com.amar.hello2.expandlist.CustExpListview
+        android:layout_below="@+id/title"
+        android:id="@+id/expandablelist"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:groupIndicator="@null"
+        />
+
+</merge>
