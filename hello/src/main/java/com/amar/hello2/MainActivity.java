@@ -21,6 +21,9 @@ import android.widget.Toast;
 import android.app.ProgressDialog;
 
 import com.amar.hello2.tools.ShortcutUtils;
+import com.romainpiel.shimmer.Shimmer;
+import com.romainpiel.shimmer.ShimmerTextView;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -50,6 +53,7 @@ public class MainActivity extends BaseActivity
 
     private Switch mySwitch = null;
 
+    private ShimmerTextView shimmerBtn = null;
     public static final int REQUEST_CODE = 501;
 
     String TAG = "MainActivity";
@@ -321,6 +325,8 @@ public class MainActivity extends BaseActivity
         editText2 = ( EditText ) this.findViewById( R.id.editText2 );
 
         mySwitch = ( Switch ) findViewById( R.id.mySwitch );
+
+        shimmerBtn =  (ShimmerTextView )findViewById( R.id.shimmer_tv );
     }
 
     public void uiFunction()
@@ -467,6 +473,9 @@ public class MainActivity extends BaseActivity
         uiFunction();
 
         drawCircle();
+
+        Shimmer shimmer = new Shimmer();
+        shimmer.start( shimmerBtn );
 
         ShortcutUtils shortcutUtils = new ShortcutUtils();
         String shortcutName = getString( R.string.app_name );
