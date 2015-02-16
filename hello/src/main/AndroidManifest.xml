@@ -1,253 +1,359 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.amar.hello2"
-    android:versionCode="1"
-    android:versionName="1.0" >
+          package="com.amar.hello2"
+          android:versionCode="1"
+          android:versionName="1.0">
 
     <uses-sdk
         android:minSdkVersion="10"
-        android:targetSdkVersion="10" />
+        android:targetSdkVersion="10"/>
 
     <meta-data
         android:name="UMENG_CHANNEL"
-        android:value="UMENG_CHANNEL_VALUE" />
+        android:value="UMENG_CHANNEL_VALUE"/>
 
-    <uses-permission android:name="android.permission.CALL_PHONE" />
-    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-    <uses-permission android:name="android.permission.VIBRATE" />
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT" />
-    <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS" />
-    <uses-permission android:name="com.android.launcher.permission.UNINSTALL_SHORTCUT" />
-    <uses-permission android:name="android.permission.ACCESS_DOWNLOAD_MANAGER" />
-    <uses-permission android:name="android.permission.GET_TASKS" />
-    <uses-permission android:name="android.permission.SEND_SMS" />
-    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <!-- jpush-->
+    <permission
+        android:name="com.amar.hello2.permission.JPUSH_MESSAGE"
+        android:protectionLevel="signature"/>
+
+    <uses-permission android:name="com.amar.hello2.permission.JPUSH_MESSAGE"/>
+    <uses-permission android:name="android.permission.RECEIVE_USER_PRESENT"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <!-- Optional for location -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS"/>
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"/>
+    <!-- jpush-->
+
+
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT"/>
+    <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS"/>
+    <uses-permission android:name="com.android.launcher.permission.UNINSTALL_SHORTCUT"/>
+    <uses-permission android:name="android.permission.ACCESS_DOWNLOAD_MANAGER"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <uses-permission android:name="android.permission.SEND_SMS"/>
+    <uses-permission android:name="android.permission.READ_CONTACTS"/>
 
     <!--
      <instrumentation android:name="android.test.InstrumentationTestRunner"
          android:targetPackage="com.amar.hello2" android:label="SecondActivity" />
     -->
 
-    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-    <uses-permission android:name="android.permission.READ_CALL_LOG" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.READ_CALL_LOG"/>
 
     <application
+        android:name=".core.MainApplication"
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme" >
-        <uses-library android:name="android.test.runner" />
+        android:theme="@style/AppTheme">
+        <uses-library android:name="android.test.runner"/>
 
         <activity
             android:name="ca.laplanete.mobile.example.MainActivity"
-            android:label="@string/app_name" >
+            android:label="@string/app_name">
         </activity>
         <activity
             android:name=".MainActivity"
-            android:label="@string/app_name" >
+            android:label="@string/app_name">
         </activity>
 
         <activity-alias
             android:name=".A3"
             android:icon="@drawable/ic_launcher"
             android:label="@string/app_name"
-            android:targetActivity=".MainActivity" >
+            android:targetActivity=".MainActivity">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.MAIN"/>
 
-                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity-alias>
 
         <activity
             android:name=".SecondActivity"
             android:label="@string/app_name"
-            android:theme="@android:style/Theme.Black.NoTitleBar" >
+            android:theme="@android:style/Theme.Black.NoTitleBar">
         </activity>
         <activity
             android:name=".ThirdActivity"
             android:label="@string/app_name"
-            android:theme="@style/Theme.MyDialog" >
+            android:theme="@style/Theme.MyDialog">
         </activity>
         <!-- android:theme="@android:style/Theme.Wallpaper" -->
         <activity
             android:name=".DBActivity"
             android:exported="true"
-            android:label="@string/app_name" >
+            android:label="@string/app_name">
         </activity>
         <activity
             android:name=".NetWorkActivity"
             android:label="@string/app_name"
-            android:theme="@android:style/Theme.Black.NoTitleBar" >
+            android:theme="@android:style/Theme.Black.NoTitleBar">
         </activity>
         <activity
             android:name=".FragmentDemoActivity"
-            android:label="@string/title_activity_fragment" >
+            android:label="@string/title_activity_fragment">
         </activity>
         <activity
             android:name=".MyLayoutActivity"
-            android:label="@string/title_activity_mylayout" >
+            android:label="@string/title_activity_mylayout">
         </activity>
         <activity
             android:name=".layout.MyTableActivity"
-            android:label="@string/title_activity_mylayout" >
+            android:label="@string/title_activity_mylayout">
         </activity>
         <activity
             android:name=".layout.MyAbsActivity"
-            android:label="@string/title_activity_mylayout" >
+            android:label="@string/title_activity_mylayout">
         </activity>
         <activity
             android:name=".layout.MyFrameActivity"
-            android:label="@string/title_activity_mylayout" >
+            android:label="@string/title_activity_mylayout">
         </activity>
         <activity
             android:name=".layout.MyGridActivity"
             android:exported="true"
-            android:label="@string/title_activity_mylayout" >
+            android:label="@string/title_activity_mylayout">
         </activity>
         <activity
             android:name=".layout.MyLinearActivity"
-            android:label="@string/title_activity_mylayout" >
+            android:label="@string/title_activity_mylayout">
         </activity>
         <activity
             android:name=".layout.MyRelatActivity"
-            android:label="@string/title_activity_mylayout" >
+            android:label="@string/title_activity_mylayout">
         </activity>
         <activity
             android:name=".Widget1Activity"
             android:exported="true"
-            android:label="@string/title_activity_widget1" >
+            android:label="@string/title_activity_widget1">
         </activity>
         <activity
             android:name=".ScrollListView"
             android:exported="true"
-            android:label="@string/title_activity_widget1" />
+            android:label="@string/title_activity_widget1"/>
         <activity
             android:name=".SubWidget1Activity"
             android:exported="true"
-            android:label="@string/title_activity_sub_widget1" >
+            android:label="@string/title_activity_sub_widget1">
         </activity>
         <activity
             android:name=".SubWidget2Activity"
             android:exported="true"
-            android:label="@string/title_activity_sub_widget2" >
+            android:label="@string/title_activity_sub_widget2">
         </activity>
         <activity
             android:name=".SubWidget3Activity"
             android:exported="true"
-            android:label="@string/title_activity_sub_widget3" >
+            android:label="@string/title_activity_sub_widget3">
         </activity>
         <activity
             android:name=".ListView1"
             android:exported="true"
-            android:label="@string/title_activity_list_view1" >
+            android:label="@string/title_activity_list_view1">
         </activity>
         <activity
             android:name=".ListView2"
-            android:label="@string/title_activity_list_view2" >
+            android:label="@string/title_activity_list_view2">
         </activity>
         <activity
             android:name=".ListView3"
-            android:label="@string/title_activity_list_view3" >
+            android:label="@string/title_activity_list_view3">
         </activity>
         <activity
             android:name=".TabHostDemoActivity"
-            android:label="@string/title_activity_tab_host_demo" >
+            android:label="@string/title_activity_tab_host_demo">
         </activity>
         <activity
             android:name=".ExpandableListViewActivity"
-            android:label="ExpandableListViewActivity" >
+            android:label="ExpandableListViewActivity">
         </activity>
         <activity
             android:name=".Internet1Activity"
             android:exported="true"
-            android:label="@string/title_activity_internet1" >
+            android:label="@string/title_activity_internet1">
         </activity>
         <activity
             android:name=".Annotation1Activity_"
-            android:label="@string/title_activity_annotation1" >
+            android:label="@string/title_activity_annotation1">
         </activity>
         <activity
             android:name=".RXActivity_"
-            android:label="@string/title_activity_rx" >
+            android:label="@string/title_activity_rx">
         </activity>
         <activity
             android:name=".SubPageView_"
             android:exported="true"
-            android:label="@string/title_activity_sub_page_view" >
+            android:label="@string/title_activity_sub_page_view">
         </activity>
         <activity
             android:name=".WeiBoActivity"
-            android:label="WeiBoActivity" >
+            android:label="WeiBoActivity">
         </activity>
         <activity
             android:name=".HScrollTitleActivity"
             android:exported="true"
-            android:label="HScrollTitleActivity" >
+            android:label="HScrollTitleActivity">
         </activity>
         <activity
             android:name=".RadioScrollActivity"
-            android:label="@string/title_activity_radio_scroll" >
+            android:label="@string/title_activity_radio_scroll">
         </activity>
 
         <service
             android:name=".MyDemo1Service"
             android:enabled="true"
-            android:exported="true" >
+            android:exported="true">
         </service>
 
         <activity
             android:name=".ServiceActivity_"
             android:exported="true"
-            android:label="@string/title_activity_service" >
+            android:label="@string/title_activity_service">
         </activity>
         <activity
             android:name=".DrawerActivity"
             android:exported="true"
-            android:label="@string/title_activity_drawer" />
+            android:label="@string/title_activity_drawer"/>
         <activity
             android:name=".ShareAppActivity"
-            android:label="@string/title_activity_share_app" >
+            android:label="@string/title_activity_share_app">
         </activity>
         <activity
             android:name=".ListImageActivity_"
             android:exported="true"
             android:label="@string/title_activity_list_image"
-            android:screenOrientation="portrait" >
+            android:screenOrientation="portrait">
         </activity>
         <activity
             android:name=".BlurActivity_"
             android:exported="true"
-            android:label="@string/title_activity_blur" >
+            android:label="@string/title_activity_blur">
         </activity>
         <activity
             android:name=".EmbedExpandListViewActivity_"
             android:exported="true"
             android:label="@string/title_activity_embed_expand_list_view"
-            android:theme="@android:style/Theme.Black.NoTitleBar" >
+            android:theme="@android:style/Theme.Black.NoTitleBar">
         </activity>
         <activity
             android:name=".ExpandableListView2Activity_"
-            android:label="@string/title_activity_expandable_list_view2" >
+            android:label="@string/title_activity_expandable_list_view2">
         </activity>
         <activity
             android:name=".ExpandList3Activity_"
-            android:label="@string/title_activity_expand_list3" >
+            android:label="@string/title_activity_expand_list3">
         </activity>
         <activity
             android:name=".ExpandList4Activity_"
-            android:label="@string/title_activity_expand_list4" >
+            android:label="@string/title_activity_expand_list4">
         </activity>
         <activity
             android:exported="true"
             android:name=".ExpandList5Activity_"
-            android:label="@string/title_activity_expand_list5" >
+            android:label="@string/title_activity_expand_list5">
         </activity>
+
+        <!-- jpush 核心功能-->
+        <!-- Required SDK核心功能-->
+        <activity
+            android:name="cn.jpush.android.ui.PushActivity"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:configChanges="orientation|keyboardHidden">
+            <intent-filter>
+                <action android:name="cn.jpush.android.ui.PushActivity"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="com.amar.hello2"/>
+            </intent-filter>
+        </activity>
+        <service
+            android:name="cn.jpush.android.service.PushService"
+            android:enabled="true"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="cn.jpush.android.intent.REGISTER"/>
+                <action android:name="cn.jpush.android.intent.REPORT"/>
+                <action android:name="cn.jpush.android.intent.PushService"/>
+                <action android:name="cn.jpush.android.intent.PUSH_TIME"/>
+            </intent-filter>
+        </service>
+
+        <receiver
+            android:name="cn.jpush.android.service.PushReceiver"
+            android:enabled="true">
+            <intent-filter android:priority="1000">
+                <action android:name="cn.jpush.android.intent.NOTIFICATION_RECEIVED_PROXY"/>
+                <category android:name="com.amar.hello2"/>
+                <!--包名，重要，记得替换 -->
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.USER_PRESENT"/>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+            <!-- Optional -->
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_ADDED"/>
+                <action android:name="android.intent.action.PACKAGE_REMOVED"/>
+
+                <data android:scheme="package"/>
+            </intent-filter>
+
+        </receiver>
+        <receiver android:name="cn.jpush.android.service.AlarmReceiver"/>
+        <!-- jpush 自定义-->
+        <receiver
+            android:name="com.amar.hello2.service.push.MyReceiver"
+            android:enabled="true">
+            <intent-filter>
+                <action android:name="cn.jpush.android.intent.REGISTRATION"/>
+                <!--Required  用户注册SDK的intent-->
+                <action android:name="cn.jpush.android.intent.UNREGISTRATION"/>
+                <action android:name="cn.jpush.android.intent.MESSAGE_RECEIVED"/>
+                <!--Required  用户接收SDK消息的intent-->
+                <action android:name="cn.jpush.android.intent.NOTIFICATION_RECEIVED"/>
+                <!--Required  用户接收SDK通知栏信息的intent-->
+                <action android:name="cn.jpush.android.intent.NOTIFICATION_OPENED"/>
+                <!--Required  用户打开自定义通知栏的intent-->
+                <action android:name="cn.jpush.android.intent.ACTION_RICHPUSH_CALLBACK"/>
+                <!--Optional 用户接受Rich Push Javascript 回调函数的intent-->
+                <action android:name="cn.jpush.android.intent.CONNECTION"/>
+                <!-- 接收网络变化 连接/断开 since 1.6.3 -->
+                <category android:name="com.amar.hello2"/>
+            </intent-filter>
+        </receiver>
+
+        <meta-data
+            android:name="JPUSH_CHANNEL"
+            android:value="developer-default"/>
+        <meta-data
+            android:name="JPUSH_APPKEY"
+            android:value="f4a5faf32e341076eab417dc"/>
+        <!--  </>值来自开发者平台取得的AppKey-->
+        <!-- jpush 核心功能-->
     </application>
 
 </manifest>

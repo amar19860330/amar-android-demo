@@ -41,5 +41,35 @@
         android:layout_height="wrap_content"
         android:text="Unbind Service"
         />
-
+    <EditText
+        android:layout_width="200dp"
+        android:id="@+id/msg_rec"/>
+    <EditText
+        android:hint="请输入标签"
+        android:layout_width="200dp"
+        android:id="@+id/msg_tag"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Button
+            android:text="初始化"
+            android:id="@+id/msg_init"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <Button
+            android:text="停止"
+            android:id="@+id/msg_stop"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <Button
+            android:text="重启"
+            android:id="@+id/msg_resume"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <Button
+            android:text="设置标签"
+            android:id="@+id/msg_set_tag"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
 </GridLayout>
