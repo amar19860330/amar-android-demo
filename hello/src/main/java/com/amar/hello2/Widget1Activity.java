@@ -1,10 +1,13 @@
 package com.amar.hello2;
 
+import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+
+import com.amar.hello2.fragment.TipDialog;
 
 public class Widget1Activity extends BaseActivity
 {
@@ -14,6 +17,14 @@ public class Widget1Activity extends BaseActivity
     {
         super.onCreate( savedInstanceState );
         setContentView( R.layout.activity_widget1 );
+    }
+
+    public void getOnedialog(View view)
+    {
+        TipDialog cf = new TipDialog();
+        FragmentTransaction ft = this.getFragmentManager().beginTransaction();
+        ft.setTransition( FragmentTransaction.TRANSIT_FRAGMENT_FADE );
+        cf.show( ft,"cf" );
     }
     public void gotoExpandListView5(View view)
     {
