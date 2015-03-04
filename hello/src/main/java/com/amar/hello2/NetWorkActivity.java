@@ -119,9 +119,9 @@ public class NetWorkActivity extends BaseActivity
 
 		StringBuilder sb = new StringBuilder();
 		
-		boolean available = networkInfo.isAvailable();
+		boolean available =networkInfo!=null? networkInfo.isAvailable():false;
 
-		String typeName = networkInfo.getTypeName();
+		String typeName = networkInfo!=null? networkInfo.getTypeName():"未连接";
 
 		sb.append( "available:" ).append( available );
 		sb.append( ",typeName:" ).append( typeName );
