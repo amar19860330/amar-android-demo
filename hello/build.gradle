@@ -69,7 +69,7 @@ dependencies {
     compile 'org.androidannotations:androidannotations-api:3.2'
     compile 'de.greenrobot:eventbus:2.2.1'
     compile 'com.netflix.rxjava:rxjava-android:0.20.5'
-    compile 'com.squareup.retrofit:retrofit:1.6.0'
+    compile 'com.squareup.retrofit:retrofit:1.9.0'
     compile 'com.android.support:support-v4:21.0.3'
     compile 'com.github.traex.rippleeffect:library:1.2.3'//点击涟漪
     compile 'org.slf4j:slf4j-api:1.7.9'
