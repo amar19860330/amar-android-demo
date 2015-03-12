@@ -13,6 +13,11 @@ import android.widget.TextView;
 
 import com.amar.hello2.R;
 import com.amar.hello2.exception.MyRetrofitExceptionHandler;
+import com.amar.hello2.model.User;
+import com.google.gson.FieldNamingPolicy;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.internal.bind.DateTypeAdapter;
 
 import org.androidannotations.annotations.Background;
 import org.androidannotations.annotations.Click;
@@ -30,11 +35,14 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
+import java.util.Date;
+import java.util.List;
 
 import retrofit.ErrorHandler;
 import retrofit.RestAdapter;
 import retrofit.RetrofitError;
 import retrofit.client.Response;
+import retrofit.converter.GsonConverter;
 import retrofit.http.GET;
 import retrofit.http.Path;
 import retrofit.http.Query;
@@ -75,7 +83,7 @@ public class RXActivity extends BaseActivity
     public boolean onCreateOptionsMenu( Menu menu )
     {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate( R.menu.rx, menu );
+        getMenuInflater().inflate( R.menu.rx,menu );
         return true;
     }
 
@@ -83,15 +91,24 @@ public class RXActivity extends BaseActivity
     {
         @GET( "/{file}" )
         Object getWeather( @Path( "file" ) String para );
+
+        /**
+         * [{"name":"amar","email":"amar@gmail.com","pw":"123456"},{"name":"sam","email":"sam@gmail.com","pw":"654321"}]
+         * @param para
+         * @return
+         */
+        @GET( "/{file}" )
+        List<User> getUserList( @Path( "file" ) String para );
     }
 
-    private static final RestAdapter restAdapter = new RestAdapter.Builder().setEndpoint( "http://192.168.1.132:8080/myweb" ).setErrorHandler( new MyRetrofitExceptionHandler() ).build();
+    private static final RestAdapter restAdapter = new RestAdapter.Builder().setEndpoint( "http://192.168.56.1/dinner" ).setErrorHandler( new MyRetrofitExceptionHandler() ).build();
     private static final ApiManagerService apiManager = restAdapter.create( ApiManagerService.class );
 
     @Click( resName = "rxGet" )
     public void rxGetBtn()
     {
         rxInfoEdt.setText( "读取解析中..." );
+
         //1、使用async
         //new MyAsyncTask().execute(rxInfoPathEdit.getText().toString());
 
@@ -119,36 +136,65 @@ public class RXActivity extends BaseActivity
 
     public void useRx( final String path )
     {
-        Observable.from( path ).flatMap( new Func1< String, Observable< ? > >()
+        Subscriber<Object> subscriber= new Subscriber<Object>()
         {
             @Override
-            public Observable< ? > call( String s )
+            public void onCompleted()
+            {
+
+            }
+
+            @Override
+            public void onError( Throwable e )
+            {
+                rxInfoEdt.setText( e.getMessage() );
+            }
+
+            @Override
+            public void onNext( Object o )
+            {
+                rxInfoEdt.setText( o.toString() );
+            }
+        };
+
+        Observable.just( path ).flatMap( new Func1<String, Observable<?>>()
+        {
+            @Override
+            public Observable<?> call( String s )
             {
                 return RXActivity.getWeatherData( s );
             }
-        } ).observeOn( AndroidSchedulers.mainThread() ).subscribe( new Action1< Object >()
-        {
-            @Override
-            public void call( Object o )
-            {
-                rxInfoEdt.setText( o.toString() );
-
-                logI( "rx result:" + o.toString() );
-            }
-        } );
-
+        } ).subscribeOn( Schedulers.io() ).observeOn( AndroidSchedulers.mainThread() ).subscribe( subscriber );
     }
 
-    public static Observable< Object > getWeatherData( final String path )
+    public static Observable<Object> getWeatherData( final String path )
     {
-        return Observable.create( new Observable.OnSubscribe< Object >()
+        return Observable.create( new Observable.OnSubscribe<Object>()
         {
             @Override
-            public void call( Subscriber< ? super Object > subscriber )
+            public void call( Subscriber<? super Object> subscriber )
             {
                 try
                 {
-                    subscriber.onNext( apiManager.getWeather( path ) );
+                    RestAdapter.Builder builder = new RestAdapter.Builder().setEndpoint( "http://192.168.56.1/dinner" ).setErrorHandler( new MyRetrofitExceptionHandler() );
+
+                    Gson gson = new GsonBuilder().setFieldNamingPolicy( FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES ).registerTypeAdapter( Date.class,new DateTypeAdapter() ).create();
+
+                    builder.setConverter( new GsonConverter( gson ) );
+
+                    RestAdapter restAdapter2 = builder.build();
+
+                    ApiManagerService apiManager = restAdapter2.create( ApiManagerService.class );
+
+                    List<User> list= apiManager.getUserList( path );
+
+                    StringBuilder sb = new StringBuilder(  );
+                    for(User user : list)
+                    {
+                        sb.append( user.toString() ).append( "\n" );
+                    }
+                    subscriber.onNext( sb.toString() );
+
                     subscriber.onCompleted();
                 }
                 catch ( Exception e )
@@ -156,11 +202,11 @@ public class RXActivity extends BaseActivity
                     subscriber.onError( e );
                 }
             }
-        } ).subscribeOn( Schedulers.io() );
+        } );//.subscribeOn( Schedulers.io() );
     }
 
 
-    public class MyAsyncTask extends AsyncTask< String, Integer, Object >
+    public class MyAsyncTask extends AsyncTask<String, Integer, Object>
     {
 
         @Override
@@ -234,7 +280,7 @@ public class RXActivity extends BaseActivity
             factory.setNamespaceAware( true );
             XmlPullParser xpp = factory.newPullParser();
             // Assign a new input stream.
-            xpp.setInput( inputStream, null );
+            xpp.setInput( inputStream,null );
             int eventType = xpp.getEventType();
             // Continue until the end of the document is reached.
             while ( eventType != XmlPullParser.END_DOCUMENT )
@@ -264,11 +310,11 @@ public class RXActivity extends BaseActivity
         }
         catch ( XmlPullParserException e )
         {
-            Log.d( "PULLPARSER", "XML Pull Parser Exception", e );
+            Log.d( "PULLPARSER","XML Pull Parser Exception",e );
         }
         catch ( IOException e )
         {
-            Log.d( "PULLPARSER", "IO Exception", e );
+            Log.d( "PULLPARSER","IO Exception",e );
         }
     }
 
