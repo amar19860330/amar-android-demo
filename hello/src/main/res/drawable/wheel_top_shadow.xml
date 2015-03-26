@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <corners
+        android:topLeftRadius="@dimen/wheel_radius"
+        android:topRightRadius="@dimen/wheel_radius"/>
+
+    <gradient
+        android:angle="270"
+        android:startColor="#cc000000"
+        android:centerColor="#33ffffff"
+        android:endColor="#1affffff"/>
+
+</shape>

@@ -15,19 +15,40 @@ import android.widget.Toast;
 
 import com.amar.hello2.R;
 
+import java.util.Date;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import kankan.wheel.widget.WheelView;
+import kankan.wheel.widget.adapters.AbstractWheelTextAdapter;
+
 public class Fragment2 extends Fragment
 {
+    WheelView wheelView;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
     {
         // ---Inflate the layout for this fragment---
+        View rootView = inflater.inflate(R.layout.fragment2, container, false);
 
-        return inflater.inflate(R.layout.fragment2, container, false);
+        wheelView = (WheelView)rootView.findViewById(R.id.wheelView);
 
+        wheelView.setVisibleItems(5);
+        wheelView.setCyclic(true);
+        wheelView.setViewAdapter(new AbstractWheelTextAdapter(getActivity(), R.layout.wheel_text_view)
+        {
+            @Override
+            protected CharSequence getItemText(int index)
+            {
+                return  new Date(  ( (new Date().getTime())/1000+index)*1000 ).toString();
+            }
+            @Override
+            public int getItemsCount() {
+                return 60;
+            }
+        });
 
+        return rootView;
     }
 
     @Override

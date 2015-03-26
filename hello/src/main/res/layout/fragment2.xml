@@ -21,4 +21,11 @@
     android:textColor="#000000"
     />
 
+    <kankan.wheel.widget.WheelView
+        android:paddingLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:id="@+id/wheelView"
+        android:layout_centerVertical="true"/>
 </LinearLayout>

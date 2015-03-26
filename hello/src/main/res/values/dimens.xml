@@ -9,4 +9,13 @@
     <dimen name="rdo3">200dp</dimen>
     <dimen name="rdo4">300dp</dimen>
     <dimen name="rdo5">400dp</dimen>
+
+    <dimen name="wheel_radius">3dp</dimen>
+    <dimen name="wheel_stroke_width">1px</dimen>
+    <dimen name="wheel_inner_line_padding">2dp</dimen>
+    <dimen name="wheel_inner_line_margin">-2dp</dimen>
+    <dimen name="wheel_inner_line_width">1dp</dimen>
+
+    <dimen name="line_width">1dp</dimen>
+
 </resources>

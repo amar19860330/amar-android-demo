@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item>
+        <shape>
+            <corners android:radius="@dimen/wheel_radius"/>
+
+            <gradient
+                android:startColor="#20000000"
+                android:centerColor="#4cffffff"
+                android:endColor="#20000000"
+                android:angle="90"/>
+
+            <stroke
+                android:width="@dimen/wheel_stroke_width"
+                android:color="#6fffffff"/>
+        </shape>
+    </item>
+
+    <item
+        android:left="@dimen/wheel_inner_line_padding"
+        android:right="@dimen/wheel_inner_line_margin"
+        android:top="@dimen/wheel_inner_line_margin"
+        android:bottom="@dimen/wheel_inner_line_margin">
+        <shape>
+            <stroke
+                android:width="@dimen/wheel_inner_line_width"
+                android:color="#4dffffff"/>
+
+            <solid android:color="@android:color/transparent"/>
+        </shape>
+    </item>
+
+    <item
+        android:left="@dimen/wheel_inner_line_margin"
+        android:right="@dimen/wheel_inner_line_padding"
+        android:top="@dimen/wheel_inner_line_margin"
+        android:bottom="@dimen/wheel_inner_line_margin">
+        <shape>
+            <stroke
+                android:width="@dimen/wheel_inner_line_width"
+                android:color="#4dffffff"/>
+
+            <solid android:color="@android:color/transparent"/>
+        </shape>
+    </item>
+
+</layer-list>
