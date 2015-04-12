@@ -178,8 +178,13 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="弹出框"
+        android:text="弹出框1"
         android:id="@+id/button22"
         android:onClick="getOnedialog"/>
-
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="弹出框2"
+        android:id="@+id/button23"
+        android:onClick="getdialogExample"/>
 </GridLayout>

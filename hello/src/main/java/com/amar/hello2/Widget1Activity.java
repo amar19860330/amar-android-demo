@@ -7,6 +7,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.amar.hello2.fragment.ExampleDialogFragment;
 import com.amar.hello2.fragment.TipDialog;
 
 public class Widget1Activity extends BaseActivity
@@ -19,6 +20,13 @@ public class Widget1Activity extends BaseActivity
         setContentView( R.layout.activity_widget1 );
     }
 
+    public void getdialogExample(View view)
+    {
+        ExampleDialogFragment exampleDialogFragment = new ExampleDialogFragment();
+        FragmentTransaction ft = this.getFragmentManager().beginTransaction();
+        ft.setTransition( FragmentTransaction.TRANSIT_FRAGMENT_FADE );
+        exampleDialogFragment.show( ft,"cf" );
+    }
     public void getOnedialog(View view)
     {
         TipDialog cf = new TipDialog();
