@@ -51,5 +51,6 @@
     <string name="title_activity_expand_list4">ExpandList4Activity</string>
     <string name="header">Header %d</string>
     <string name="title_activity_expand_list5">ExpandList5Activity</string>
+    <string name="title_activity_green_dao">GreenDaoActivity</string>
 
 </resources>

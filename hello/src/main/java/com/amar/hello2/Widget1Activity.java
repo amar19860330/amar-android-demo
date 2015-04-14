@@ -20,6 +20,11 @@ public class Widget1Activity extends BaseActivity
         setContentView( R.layout.activity_widget1 );
     }
 
+    public void gotoGreenDaoExample(View view)
+    {
+        Intent intent = new Intent(this,GreenDaoActivity.class);
+        startActivity(intent);
+    }
     public void getdialogExample(View view)
     {
         ExampleDialogFragment exampleDialogFragment = new ExampleDialogFragment();

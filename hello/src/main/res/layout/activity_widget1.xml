@@ -187,4 +187,11 @@
         android:text="弹出框2"
         android:id="@+id/button23"
         android:onClick="getdialogExample"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="数据库"
+        android:id="@+id/button24"
+        android:onClick="gotoGreenDaoExample"/>
 </GridLayout>
