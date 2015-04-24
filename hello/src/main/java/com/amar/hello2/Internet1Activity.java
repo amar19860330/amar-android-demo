@@ -29,13 +29,25 @@ import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.ProgressBar;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.amar.hello2.fast.FClickById;
+import com.amar.hello2.fast.FViewById;
+import com.amar.hello2.fast.Fast;
+import com.thin.downloadmanager.DownloadRequest;
+import com.thin.downloadmanager.DownloadStatusListener;
+import com.thin.downloadmanager.ThinDownloadManager;
 
 
-public class Internet1Activity extends BaseActivity
+public class Internet1Activity extends BaseActivity implements DownloadStatusListener
 {
 
     private static final String TAG = "Chapter6_Internet";
     public static String APK_NAME = "hello-main2-debug.apk";
+    private static String Test_Apk_Url = "http://192.168.1.34/myweb//hello-main2-debug.apk";
+
 
     private void listing601()
     {
@@ -293,12 +305,8 @@ public class Internet1Activity extends BaseActivity
 
     private long myDownloadReference;
 
-    @Override
-    public void onCreate( Bundle savedInstanceState )
+    private void initUIFromBookExample()
     {
-        super.onCreate( savedInstanceState );
-        setContentView( R.layout.activity_internet1 );
-
         Button buttonOpen = ( Button ) findViewById( R.id.internet_button1 );
         buttonOpen.setOnClickListener( new OnClickListener()
         {
@@ -335,7 +343,6 @@ public class Internet1Activity extends BaseActivity
             }
         } );
     }
-
     public class MyDownloadApkAsyncTask extends AsyncTask< String, Integer, String >
     {
         @Override
@@ -402,18 +409,187 @@ public class Internet1Activity extends BaseActivity
             listing603();
             return null;
         }
-
     }
 
     public class MyAsyncTask3 extends AsyncTask< Void, Integer, String >
     {
-
         @Override
         protected String doInBackground( Void... params )
         {
             listing607();
             return null;
         }
+    }
 
+    @Override
+    public void onCreate( Bundle savedInstanceState )
+    {
+        super.onCreate( savedInstanceState );
+        setContentView( R.layout.activity_internet1 );
+
+        initUIFromBookExample();
+
+        new Fast<Internet1Activity>().scanInActivity(this);
+        //https://github.com/AizazAZ/ThinDownloadManager
+        initThinDownloadManager();
+    }
+
+    @FViewById(R.id.download_1)
+    Button download_1;
+
+    @FViewById(R.id.download_2)
+    Button download_2;
+
+    @FViewById(R.id.download_start_all)
+    Button download_start_all;
+
+    @FViewById(R.id.download_cancel_all)
+    Button download_cancel_all;
+
+    @FViewById(R.id.progress1)
+    ProgressBar progress1;
+
+    @FViewById(R.id.progress2)
+    ProgressBar progress2;
+
+    @FViewById(R.id.download_status)
+    TextView statusTexViewt;
+
+    ThinDownloadManager downloadManager;
+    private static final String FILE1 = "https://dl.dropboxusercontent.com/u/25887355/test_photo1.JPG";
+    private static final String FILE2 = Test_Apk_Url;
+    String apk_local_path = "test.apk";
+
+    int downloadId1;
+    int downloadId2;
+    DownloadRequest downloadRequest1;
+    DownloadRequest downloadRequest2;
+    Uri destinationUri;
+    void initThinDownloadManager()
+    {
+        progress1.setMax(100);
+        progress1.setProgress(0);
+
+        progress2.setMax(100);
+        progress2.setProgress(0);
+
+        downloadManager = new ThinDownloadManager(2);
+
+        Uri downloadUri = Uri.parse(FILE1);
+        destinationUri = Uri.parse(this.getFilesDir().toString()+"/test_photo1.JPG");
+        downloadRequest1 = new DownloadRequest(downloadUri)
+                .setDestinationURI(destinationUri).setPriority(DownloadRequest.Priority.LOW)
+                .setDownloadListener(this);
+
+        downloadUri = Uri.parse(FILE2);
+        //destinationUri = Uri.parse(Environment.getExternalStorageDirectory()+"/"+apk_local_path);
+        destinationUri = Uri.parse(this.getFilesDir().toString()+"/"+apk_local_path+".xxx");
+        apk_local_path = destinationUri.getPath();
+        File file = new File(apk_local_path);
+        if(file.exists())
+        {
+            file.delete();
+        }
+        downloadRequest2 = new DownloadRequest(downloadUri)
+                .setDestinationURI(destinationUri).setPriority(DownloadRequest.Priority.LOW)
+                .setDownloadListener(this);
+
+    }
+
+    @FClickById(R.id.download_1)
+    void clickDownload1()
+    {
+        if (downloadManager.query(downloadId1) == com.thin.downloadmanager.DownloadManager.STATUS_NOT_FOUND)
+        {
+            downloadId1 = downloadManager.add(downloadRequest1);
+        }
+    }
+
+    @FClickById(R.id.download_2)
+    void clickDownload2()
+    {
+        if (downloadManager.query(downloadId2) == com.thin.downloadmanager.DownloadManager.STATUS_NOT_FOUND)
+        {
+            downloadId2 = downloadManager.add(downloadRequest2);
+        }
+    }
+
+    @FClickById(R.id.download_start_all)
+    void clickDownloadStartAll()
+    {
+        downloadManager.cancelAll();
+        downloadId1 = downloadManager.add(downloadRequest1);
+        downloadId2 = downloadManager.add(downloadRequest2);
+    }
+
+    @FClickById(R.id.download_cancel_all)
+    void clickDownloadCancelAll()
+    {
+        downloadManager.cancelAll();
+    }
+
+
+        @Override
+        public void onDownloadComplete(int id) {
+            if (id == downloadId1) {
+                setInfo("Download1 id: " + id + " Completed");
+
+            } else if (id == downloadId2) {
+                setInfo("Download2 id: " + id + " Completed");
+
+                try {
+                    Intent installIntent = new Intent( Intent.ACTION_VIEW );
+                    installIntent.addFlags( Intent.FLAG_ACTIVITY_NEW_TASK );
+                    //installIntent.setDataAndType( destinationUri , "application/vnd.android.package-archive" );
+                    installIntent.setDataAndType( Uri.fromFile(new File("/data/data/com.amar.hello2/files/test.apk")) , "application/vnd.android.package-archive" );
+                    startActivity( installIntent );
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    Toast.makeText(Internet1Activity.this,"出错了",Toast.LENGTH_SHORT).show();
+                }
+            }
+        }
+
+        @Override
+        public void onDownloadFailed(int id, int errorCode, String errorMessage) {
+            System.out.println("###### onDownloadFailed ######## "+id+" : "+errorCode+" : "+errorMessage);
+            if (id == downloadId1) {
+                setInfo("Download1 id: " + id + " Failed: ErrorCode " + errorCode + ", " + errorMessage);
+                progress1.setProgress(0);
+            } else if (id == downloadId2) {
+                setInfo("Download2 id: " + id + " Failed: ErrorCode " + errorCode + ", " + errorMessage);
+                progress2.setProgress(0);
+
+            }
+        }
+
+        @Override
+        public void onProgress(int id, long totalBytes,int progress) {
+            if (id == downloadId1) {
+                setInfo("Download1 id: " + id + ", " + progress + "%" + "  " + getBytesDownloaded(progress, totalBytes));
+                progress1.setProgress(progress);
+
+            } else if (id == downloadId2) {
+                setInfo("Download2 id: " + id + ", " + progress + "%" + "  " + getBytesDownloaded(progress, totalBytes));
+                progress2.setProgress(progress);
+            }
+        }
+
+    private void setInfo(String info)
+    {
+        statusTexViewt.setText(statusTexViewt.getText()+"\n"+info);
+    }
+
+    private String getBytesDownloaded(int progress, long totalBytes) {
+        //Greater than 1 MB
+        long bytesCompleted = (progress * totalBytes)/100;
+        if (totalBytes >= 1000000) {
+            return (""+(String.format("%.1f", (float)bytesCompleted/1000000))+ "/"+ ( String.format("%.1f", (float)totalBytes/1000000)) + "MB");
+        } if (totalBytes >= 1000) {
+            return (""+(String.format("%.1f", (float)bytesCompleted/1000))+ "/"+ ( String.format("%.1f", (float)totalBytes/1000)) + "Kb");
+
+        } else {
+            return ( ""+bytesCompleted+"/"+totalBytes );
+        }
     }
 }
